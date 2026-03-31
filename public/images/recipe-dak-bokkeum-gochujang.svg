@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+    <rect width="200" height="200" fill="#f8f8f8" rx="12"/>
+    <circle cx="100" cy="80" r="40" fill="#F97316" opacity="0.3"/>
+    <circle cx="100" cy="80" r="35" fill="#F97316"/>
+    <text x="100" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">
+      고추장닭볶음
+    </text>
+  </svg>

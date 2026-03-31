@@ -5,6 +5,17 @@ const SPICY_LEVEL_META = {
   상: { count: 2, label: "매운", icon: "🌶️" },
   아주매움: { count: 3, label: "아주 매운", icon: "🌶️" }
 };
+// 기본 조미료/양념료/조리용 재료들 - buildIngredientInventory에서 제외
+const EXCLUDED_INGREDIENTS = new Set([
+  "물", "소금", "설탕", "마늘", "다진마늘", "마늘간", 
+  "식용유", "기름", "참기름", "들기름", "고춧가루",
+  "간장", "국간장", "식초", "고추장", "된장", "쌈장",
+  "맛술", "미림", "굴소스", "케첩", "마요네즈", "물엿",
+  "올리고당", "후추", "소금약간", "설탕약간", "간장약간",
+  "고춧가루약간", "유", "유기", "물기", "껍질", "대", "줌", "장",
+  "불린", "삶은", "슬라이스", "채썬", "다진", "간", "거기"
+]);
+
 const COMMON_INGREDIENTS = [
   "김치",
   "돼지고기",
@@ -25,7 +36,33 @@ const COMMON_INGREDIENTS = [
   "바지락",
   "치즈",
   "김",
-  "참치"
+  "참치",
+  "무",
+  "당근",
+  "상추",
+  "시금치",
+  "미역",
+  "깻잎",
+  "양배추",
+  "고구마",
+  "순대",
+  "라면",
+  "햄",
+  "소시지",
+  "고사리",
+  "숙주나물",
+  "우거지",
+  "나물",
+  "전",
+  "떡볶이",
+  "찹쌀",
+  "대추",
+  "인삼",
+  "소면",
+  "오이",
+  "부침가루",
+  "신라면",
+  "찬"
 ];
 const SAUCE_ALIASES = {
   고추장: ["고추장"],
@@ -147,7 +184,12 @@ function extractIngredientName(raw = "") {
     "약간", "조금", "적당량", "넉넉히", "약", "기호에", "따라", "기호", "가능",
     "한", "두", "세", "네", "반",
     "한개", "두개", "세개", "네개", "반개",
-    "개", "모", "대", "줄", "장", "마리", "알", "봉", "포기", "줌", "조각", "컵", "큰술", "작은술", "스푼"
+    "개", "모", "대", "줄", "장", "마리", "알", "봉", "포기", "줌", "조각", "컵", "큰술", "작은술", "스푼",
+    // 조미료 제외 토큰들
+    "물", "소금", "설탕", "마늘", "다진", "간", "식용유", "기름", "참기름", "들기름",
+    "고춧가루", "간장", "국간장", "식초", "고추장", "된장", "쌈장", 
+    "맛술", "미림", "굴소스", "케첩", "마요네즈", "물엿", "올리고당",
+    "후추", "소금약간", "또는", "육수"
   ]);
 
   const base = stripped || cleaned;
@@ -174,17 +216,20 @@ function extractIngredientName(raw = "") {
 }
 
 function buildIngredientInventory(recipes) {
-  const set = new Set(COMMON_INGREDIENTS.map(normalizeIngredientName));
+  const set = new Set(COMMON_INGREDIENTS.map(normalizeIngredientName)
+    .filter((item) => !EXCLUDED_INGREDIENTS.has(item)));
 
   recipes.forEach((recipe) => {
     (recipe.ingredients || []).forEach((item) => {
       const extracted = extractIngredientName(item);
-      if (extracted) set.add(extracted);
+      if (extracted && !EXCLUDED_INGREDIENTS.has(extracted)) {
+        set.add(extracted);
+      }
     });
   });
 
   return Array.from(set)
-    .filter((item) => item.length > 0)
+    .filter((item) => item.length > 0 && !EXCLUDED_INGREDIENTS.has(item))
     .sort((a, b) => a.localeCompare(b, "ko"));
 }
 
@@ -223,6 +268,40 @@ function getSpicySymbol(spicyLevel) {
   return SPICY_LEVEL_META[normalized]?.icon || "🙂";
 }
 
+// 맵기를 0-3 숫자로 변환 (0=하, 1=중, 2=상, 3=아주매움)
+function getSpicyLevel(spicyLevel) {
+  const normalized = normalizeSpicyLevel(spicyLevel);
+  const map = { 하: 0, 중: 1, 상: 2, 아주매움: 3 };
+  return map[normalized] !== undefined ? map[normalized] : 1;
+}
+
+// 맵기 점수 계산: 정확히 맞으면 15점, 양 옆이면 5점, 아니면 0점
+function getSpicyScore(selectedSpicy, recipeSpicy) {
+  if (selectedSpicy === "상관없음") return 0;
+  
+  const selectedLevel = getSpicyLevel(selectedSpicy);
+  const recipeLevel = getSpicyLevel(recipeSpicy);
+  const diff = Math.abs(selectedLevel - recipeLevel);
+  
+  if (diff === 0) return 15;  // 정확히 맞음
+  if (diff === 1) return 5;   // 양 옆 (조금 다름)
+  return 0;                   // 2 이상 차이
+}
+
+// 맵기 경고 메시지 생성
+function getSpicyWarning(selectedSpicy, recipeSpicy) {
+  if (selectedSpicy === "상관없음") return null;
+  
+  const selectedLevel = getSpicyLevel(selectedSpicy);
+  const recipeLevel = getSpicyLevel(recipeSpicy);
+  
+  if (selectedLevel === recipeLevel) return null;  // 정확히 맞으면 경고 없음
+  if (recipeLevel > selectedLevel) return "🌶️ 매움 유의";  // 더 매움
+  if (recipeLevel < selectedLevel) return "🧊 싱거울 수 있음";  // 덜 매움
+  
+  return null;
+}
+
 function renderSpicyBadge(spicyLevel) {
   const normalized = normalizeSpicyLevel(spicyLevel);
   const count = getSpicyLevelCount(spicyLevel);
@@ -236,6 +315,12 @@ function renderSpicyBadge(spicyLevel) {
 }
 
 function getRecipeStyle(recipe) {
+  // 명시적인 styles 필드가 있으면 첫 번째 스타일 사용
+  if (recipe.styles && Array.isArray(recipe.styles) && recipe.styles.length > 0) {
+    return recipe.styles[0];
+  }
+
+  // 레거시 category 기반 추론
   const category = getCategory(recipe);
   const title = recipe?.title || "";
 
@@ -425,7 +510,7 @@ function createRecipeRowMarkup(recipe, index) {
   `;
 }
 
-function createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSauces, gapInfo) {
+function createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSauces, gapInfo, spicyWarning) {
   const reasons = [];
 
   if (matchedIngredients.length) {
@@ -460,6 +545,7 @@ function createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSau
           : "")}
       </div>
       <p class="ingredient-gap ${escapeHtml(gapInfo.className || "is-pending")}">재료 상태 · ${escapeHtml(gapInfo.level)}<br />${escapeHtml(gapInfo.text)}</p>
+      ${spicyWarning ? `<p class="spicy-warning">${escapeHtml(spicyWarning)}</p>` : ""}
       <p class="helper-inline">${escapeHtml(reasons[0] || "지금 만들기 쉬운 메뉴로 골라드렸어요.")}</p>
       <a class="text-link" href="/recipes.html">상세 레시피 보기 →</a>
     </article>
@@ -567,16 +653,34 @@ function renderIngredientSuggestionDropdown() {
   const ingredientSearchInput = document.getElementById("ingredient-search");
   if (!suggestionBox || !ingredientSearchInput) return;
 
-  const keyword = normalizeText(ingredientSearchInput.value || "");
+  const keyword = ingredientSearchInput.value.trim().toLowerCase();
   if (!keyword) {
     suggestionBox.innerHTML = "";
     suggestionBox.hidden = true;
     return;
   }
 
-  const suggestions = state.availableIngredients
-    .filter((item) => normalizeText(item).includes(keyword) && !state.selectedIngredients.has(item))
-    .slice(0, 8);
+  // 정규화된 키워드로 검색
+  const normalizedKeyword = normalizeText(keyword);
+  
+  // 1단계: 입력 글자로 시작하는 재료들 (정확한 매치 우선)
+  const exactMatches = state.availableIngredients
+    .filter((item) => {
+      const normalized = normalizeText(item);
+      return normalized.startsWith(normalizedKeyword) && !state.selectedIngredients.has(item);
+    });
+
+  // 2단계: 입력 글자를 포함하는 재료들 (포함 매치)
+  const partialMatches = state.availableIngredients
+    .filter((item) => {
+      const normalized = normalizeText(item);
+      return normalized.includes(normalizedKeyword) && 
+             !normalized.startsWith(normalizedKeyword) && 
+             !state.selectedIngredients.has(item);
+    });
+
+  // 정확한 매치를 우선적으로 표시 (최대 12개)
+  const suggestions = [...exactMatches, ...partialMatches].slice(0, 12);
 
   if (!suggestions.length) {
     suggestionBox.innerHTML = '<p class="ingredient-suggest-empty">추천 재료가 없습니다.</p>';
@@ -585,7 +689,15 @@ function renderIngredientSuggestionDropdown() {
   }
 
   suggestionBox.innerHTML = suggestions
-    .map((item) => `<button type="button" class="ingredient-suggest-item" data-suggest-ingredient="${escapeHtml(item)}">${escapeHtml(item)}</button>`)
+    .map((item) => {
+      // 검색 키워드 부분을 굵게 표시
+      const normalized = normalizeText(item);
+      const displayHtml = item.replace(
+        new RegExp(`(${keyword})`, 'gi'),
+        '<strong>$1</strong>'
+      );
+      return `<button type="button" class="ingredient-suggest-item" data-suggest-ingredient="${escapeHtml(item)}">${displayHtml}</button>`;
+    })
     .join("");
   suggestionBox.hidden = false;
 
@@ -671,37 +783,52 @@ function getRecommendedRecipes() {
       const matchedIngredients = getMatchedIngredients(recipe);
       const matchedSauces = Array.from(state.selectedSauces).filter((sauce) => matchesSauce(recipe, sauce));
       const gapInfo = getIngredientGapInfo(recipe, matchedIngredients);
+      const spicyWarning = getSpicyWarning(state.selectedSpicy, recipe.spicyLevel);
+      
       let score = matchedIngredients.length * 4;
 
+      // 재료 완전 일치 보너스
       if (state.selectedIngredients.size > 0 && matchedIngredients.length === state.selectedIngredients.size) {
         score += 2;
       }
+
+      // 스타일 매칭: 정확히 맞으면 8점 (기존)
       if (state.selectedStyle !== "상관없음" && getRecipeStyle(recipe) === state.selectedStyle) {
         score += 8;
       }
-      if (state.selectedSpicy !== "상관없음" && normalizeSpicyLevel(recipe.spicyLevel) === normalizeSpicyLevel(state.selectedSpicy)) {
-        score += 2;
-      }
+
+      // 맵기 매칭: 개선된 시스템
+      // - 정확히 맞으면 15점
+      // - 양 옆이면 5점
+      // - 아니면 0점
+      const spicyScore = getSpicyScore(state.selectedSpicy, recipe.spicyLevel);
+      score += spicyScore;
+
+      // 소스 매칭
       if (state.selectedSauces.size > 0) {
         score += matchedSauces.length * 3;
         if (matchedSauces.length === state.selectedSauces.size) {
           score += 2;
         }
       }
+
+      // 재료 부족도 보너스
       if (typeof gapInfo.missingCount === "number") {
         score += Math.max(0, 3 - gapInfo.missingCount);
       }
+
+      // 아무것도 선택하지 않으면 약간의 보너스
       if (state.selectedIngredients.size === 0 && state.selectedStyle === "상관없음" && state.selectedSpicy === "상관없음") {
         score += 1;
       }
 
-      return { recipe, score, matchedIngredients, matchedSauces, gapInfo };
+      return { recipe, score, matchedIngredients, matchedSauces, gapInfo, spicyWarning, spicyScore };
     })
     .filter(({ score, matchedIngredients, matchedSauces, recipe }) => {
       if (state.selectedIngredients.size > 0 && matchedIngredients.length === 0) {
         return false;
       }
-      if (state.selectedSpicy !== "상관없음" && normalizeSpicyLevel(recipe.spicyLevel) !== normalizeSpicyLevel(state.selectedSpicy) && score < 3) {
+      if (state.selectedSpicy !== "상관없음" && getSpicyScore(state.selectedSpicy, recipe.spicyLevel) === 0 && score < 3) {
         return false;
       }
       return score > 0;
@@ -773,7 +900,7 @@ function renderRecommender() {
 
   summary.textContent = `${selectedIngredientText}${selectedSauceText} 현재 ${recommendations.length}개의 추천 메뉴를 보여드립니다.`;
   results.innerHTML = recommendations
-    .map(({ recipe, score, matchedIngredients, matchedSauces, gapInfo }) => createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSauces, gapInfo))
+    .map(({ recipe, score, matchedIngredients, matchedSauces, gapInfo, spicyWarning }) => createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSauces, gapInfo, spicyWarning))
     .join("");
 }
 

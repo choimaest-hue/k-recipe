@@ -457,6 +457,14 @@ button.secondary,
   color: var(--text);
 }
 
+.ingredient-suggest-item strong {
+  color: var(--brand-dark);
+  font-weight: 700;
+  background: rgba(217, 72, 65, 0.12);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
 .ingredient-suggest-item + .ingredient-suggest-item {
   border-top: 1px solid var(--border);
 }
@@ -594,6 +602,17 @@ button.secondary,
 .ingredient-gap.is-pending {
   background: rgba(74, 98, 130, 0.12);
   color: #2f4f70;
+}
+
+.spicy-warning {
+  margin: 8px 0 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: rgba(255, 193, 7, 0.12);
+  color: #7a4a11;
+  border-left: 3px solid #ffc107;
 }
 
 .search-shell {

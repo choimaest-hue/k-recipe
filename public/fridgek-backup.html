@@ -48,19 +48,6 @@
 
     <main class="container" id="recommender-zone">
       <section class="section section-soft">
-        <div class="section-heading">
-          <h2>재료 기반 추천</h2>
-          <p>오늘 가능한 재료로 빠르게 고르고, 바로 메뉴를 결정해보세요.</p>
-        </div>
-
-        <div class="fridge-grid">
-          <article class="info-panel">
-            <p class="eyebrow">STEP 1</p>
-            <h3>취향 먼저 선택</h3>
-
-            <div class="grid-2">
-              <label>
-                먹고 싶은 스타일
                 <select id="style-select">
                   <option value="상관없음">상관없음</option>
                   <option value="국물요리">국물요리</option>
@@ -69,6 +56,19 @@
                   <option value="반찬">반찬</option>
                   <option value="분식">분식</option>
                 </select>
+                    <option value="볶음">볶음</option>
+                    <option value="밥">밥</option>
+                    <option value="반찬">반찬</option>
+                    <option value="분식">분식</option>
+                  </select>
+                  <select id="style-select">
+                    <option value="상관없음">상관없음</option>
+                    <option value="국물요리">국물요리</option>
+                    <option value="볶음">볶음</option>
+                    <option value="밥">밥</option>
+                    <option value="반찬">반찬</option>
+                    <option value="분식">분식</option>
+                  </select>
               </label>
               <label>
                 원하는 맵기
@@ -128,13 +128,13 @@
 
     <a class="floating-contact-btn" href="/contact.html" aria-label="문의 페이지 열기">문의</a>
 
-    <div id="recipe-modal" class="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-      <div class="modal-backdrop" id="modal-backdrop"></div>
-      <div class="modal-box">
-        <button class="modal-close-btn" id="modal-close" aria-label="닫기">✕</button>
-        <div class="modal-scroll" id="modal-body"></div>
-      </div>
+  <div id="recipe-modal" class="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close" aria-label="닫기">✕</button>
+      <div class="modal-scroll" id="modal-body"></div>
     </div>
+  </div>
 
     <script src="/app.js"></script>
     <script src="/ads.js"></script>

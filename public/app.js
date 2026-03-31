@@ -49,7 +49,9 @@ const state = {
   activeCategory: "전체",
   selectedIngredients: new Set(),
   selectedStyle: "상관없음",
-  selectedSpicy: "상관없음"
+  selectedSpicy: "상관없음",
+  currentPage: 1,
+  pageSize: 6
 };
 
 function escapeHtml(value = "") {
@@ -75,6 +77,22 @@ function getRecipeImage(recipe) {
 
 function getCategory(recipe) {
   return recipe?.category?.trim() ? recipe.category.trim() : "집밥";
+}
+
+function getSpicyLevelCount(spicyLevel) {
+  if (spicyLevel === "하") return 1;
+  if (spicyLevel === "중") return 2;
+  if (spicyLevel === "상") return 3;
+  return 0;
+}
+
+function renderSpicyBadge(spicyLevel) {
+  const count = getSpicyLevelCount(spicyLevel);
+  if (!count) {
+    return '<span class="badge spicy-badge" aria-label="맵기 정보 없음">🌶️ -</span>';
+  }
+
+  return `<span class="badge spicy-badge" aria-label="맵기 ${escapeHtml(spicyLevel)}">${"🌶️".repeat(count)}</span>`;
 }
 
 function getRecipeStyle(recipe) {
@@ -119,10 +137,10 @@ function createFeaturedMarkup(recipe) {
         <div class="badges">
           <span class="badge">${escapeHtml(recipe.servings || "인원 미정")}</span>
           <span class="badge">${escapeHtml(recipe.cookTime || "시간 미정")}</span>
-          <span class="badge">맵기 ${escapeHtml(recipe.spicyLevel || "미정")}</span>
+          ${renderSpicyBadge(recipe.spicyLevel || "미정")}
         </div>
         <p class="helper-text">💡 ${escapeHtml(recipe.tip || "오늘의 요리 팁이 표시됩니다.")}</p>
-        <a class="text-link" href="#all-recipes">이 메뉴 자세히 보기 →</a>
+        <a class="text-link" href="/recipes.html">이 메뉴 자세히 보기 →</a>
       </div>
     </article>
   `;
@@ -140,7 +158,7 @@ function createPreviewMarkup(recipe) {
           <span class="badge">${escapeHtml(recipe.cookTime || "시간 미정")}</span>
           <span class="badge">${escapeHtml(recipe.servings || "인원 미정")}</span>
         </div>
-        <a class="text-link" href="#all-recipes">한 페이지에서 계속 보기 →</a>
+        <a class="text-link" href="/recipes.html">레시피 페이지에서 계속 보기 →</a>
       </div>
     </article>
   `;
@@ -162,7 +180,7 @@ function createRecipeRowMarkup(recipe, index) {
           <div class="badges">
             <span class="badge">${escapeHtml(recipe.servings || "인원 미정")}</span>
             <span class="badge">${escapeHtml(recipe.cookTime || "시간 미정")}</span>
-            <span class="badge">맵기 ${escapeHtml(recipe.spicyLevel || "미정")}</span>
+            ${renderSpicyBadge(recipe.spicyLevel || "미정")}
           </div>
         </div>
 
@@ -227,7 +245,7 @@ function createRecommendCardMarkup(recipe, score, matchedIngredients) {
           : '<span class="match-tag">재료 범용 추천</span>')}
       </div>
       <p class="helper-inline">${escapeHtml(reasons[0] || "지금 만들기 쉬운 메뉴로 골라드렸어요.")}</p>
-      <a class="text-link" href="#all-recipes">상세 레시피 보기 →</a>
+      <a class="text-link" href="/recipes.html">상세 레시피 보기 →</a>
     </article>
   `;
 }
@@ -237,8 +255,12 @@ function renderHome(recipes) {
   const homePreviewGrid = document.getElementById("home-preview-grid");
 
   if (featured) {
-    featured.innerHTML = recipes.length
-      ? createFeaturedMarkup(recipes[0])
+    const randomRecipe = recipes.length
+      ? recipes[Math.floor(Math.random() * recipes.length)]
+      : null;
+
+    featured.innerHTML = randomRecipe
+      ? createFeaturedMarkup(randomRecipe)
       : '<p class="empty-state">아직 등록된 메뉴가 없습니다.</p>';
   }
 
@@ -271,6 +293,7 @@ function renderCategoryFilters(recipes) {
   filterContainer.querySelectorAll(".chip").forEach((button) => {
     button.addEventListener("click", () => {
       state.activeCategory = button.dataset.category || "전체";
+      state.currentPage = 1;
       renderCategoryFilters(state.recipes);
       renderRecipeLibrary();
     });
@@ -372,6 +395,47 @@ function getRecommendedRecipes() {
     .sort((a, b) => b.score - a.score || b.matchedIngredients.length - a.matchedIngredients.length || a.recipe.title.localeCompare(b.recipe.title, "ko"));
 }
 
+function renderPagination(totalItems) {
+  const pagination = document.getElementById("pagination-controls");
+  if (!pagination) return;
+
+  const totalPages = Math.max(1, Math.ceil(totalItems / state.pageSize));
+  state.currentPage = Math.min(state.currentPage, totalPages);
+
+  if (totalPages <= 1) {
+    pagination.innerHTML = "";
+    return;
+  }
+
+  let buttons = `
+    <button type="button" class="chip pagination-btn" data-page="${Math.max(1, state.currentPage - 1)}" ${state.currentPage === 1 ? "disabled" : ""}>이전</button>
+  `;
+
+  for (let page = 1; page <= totalPages; page += 1) {
+    buttons += `
+      <button type="button" class="chip pagination-btn ${page === state.currentPage ? "is-active" : ""}" data-page="${page}">${page}</button>
+    `;
+  }
+
+  buttons += `
+    <button type="button" class="chip pagination-btn" data-page="${Math.min(totalPages, state.currentPage + 1)}" ${state.currentPage === totalPages ? "disabled" : ""}>다음</button>
+  `;
+
+  pagination.innerHTML = buttons;
+  pagination.querySelectorAll("[data-page]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextPage = Number(button.dataset.page || state.currentPage);
+      if (nextPage === state.currentPage) return;
+      state.currentPage = nextPage;
+      renderRecipeLibrary();
+      const listTop = document.getElementById("recipe-list");
+      if (listTop) {
+        listTop.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+}
+
 function renderRecommender() {
   const summary = document.getElementById("recommender-summary");
   const results = document.getElementById("recommender-results");
@@ -402,20 +466,29 @@ function renderRecipeLibrary() {
   if (!list) return;
 
   const filteredRecipes = getFilteredRecipes();
+  const totalPages = Math.max(1, Math.ceil(filteredRecipes.length / state.pageSize));
+  state.currentPage = Math.min(state.currentPage, totalPages);
+  const startIndex = (state.currentPage - 1) * state.pageSize;
+  const pagedRecipes = filteredRecipes.slice(startIndex, startIndex + state.pageSize);
 
   if (menuCount) {
-    menuCount.textContent = `현재 ${filteredRecipes.length}개의 메뉴를 보고 있습니다. 냉장고 추천도 함께 활용해보세요.`;
+    menuCount.textContent = `총 ${filteredRecipes.length}개 메뉴 중 ${state.currentPage}/${totalPages} 페이지를 보고 있습니다.`;
   }
 
   list.innerHTML = filteredRecipes.length
-    ? filteredRecipes.map((recipe, index) => createRecipeRowMarkup(recipe, index)).join("")
+    ? pagedRecipes.map((recipe, index) => createRecipeRowMarkup(recipe, startIndex + index)).join("")
     : '<p class="empty-state">조건에 맞는 메뉴가 없습니다. 다른 검색어를 입력해보세요.</p>';
+
+  renderPagination(filteredRecipes.length);
 }
 
 function bindInteractiveControls() {
   const searchInput = document.getElementById("search-input");
   if (searchInput) {
-    searchInput.addEventListener("input", renderRecipeLibrary);
+    searchInput.addEventListener("input", () => {
+      state.currentPage = 1;
+      renderRecipeLibrary();
+    });
   }
 
   const styleSelect = document.getElementById("style-select");

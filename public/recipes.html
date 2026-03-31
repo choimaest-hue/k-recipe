@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K Recipe | 레시피 라이브러리</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="subpage">
+    <nav class="site-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="/">K Recipe</a>
+        <div class="nav-links">
+          <a href="/">홈</a>
+          <a class="is-active" href="/recipes.html">레시피</a>
+          <a href="/about.html">소개</a>
+          <a href="/contact.html">문의</a>
+          <a href="/privacy.html">개인정보처리방침</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-hero">
+      <div class="container page-hero-inner">
+        <div>
+          <p class="eyebrow">K RECIPE LIBRARY</p>
+          <h1>보고 싶은 집밥 메뉴를 골라보세요</h1>
+          <p class="lead">
+            이미지와 함께 정리된 목록형 레시피 라이브러리입니다. 메뉴명으로 검색하고 카테고리별로 골라볼 수 있어요.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#recipe-list">메뉴 바로 보기</a>
+            <a class="btn btn-secondary" href="/">홈으로 돌아가기</a>
+          </div>
+        </div>
+
+        <div class="page-hero-card">
+          <label>
+            메뉴 검색
+            <input id="search-input" type="search" placeholder="예: 김치찜, 떡볶이, 찌개" />
+          </label>
+          <div>
+            <p class="filter-label">카테고리</p>
+            <div id="category-filters" class="chip-row"></div>
+          </div>
+          <p id="menu-count" class="meta">메뉴를 불러오는 중...</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="section">
+        <div class="ad-slot ad-slot-inline" aria-label="광고 영역 안내">
+          <div>
+            <p class="eyebrow">ADVERTISEMENT</p>
+            <h3>레시피 목록 상단 광고 영역</h3>
+            <p class="meta">향후 AdSense 코드로 교체하기 좋은 위치입니다.</p>
+          </div>
+        </div>
+
+        <div id="recipe-list" class="recipe-list"></div>
+
+        <div class="ad-slot ad-slot-inline" aria-label="광고 영역 안내">
+          <div>
+            <p class="eyebrow">ADVERTISEMENT</p>
+            <h3>레시피 하단 광고 영역</h3>
+            <p class="meta">콘텐츠를 읽은 뒤 자연스럽게 이어지는 형태로 배치했습니다.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner footer-stack">
+        <div>
+          <strong>K Recipe</strong>
+          <p class="meta">집밥 메뉴를 더 쉽게, 더 예쁘게 🍲</p>
+        </div>
+        <div class="footer-links">
+          <a href="/">홈</a>
+          <a href="/recipes.html">레시피</a>
+          <a href="/about.html">소개</a>
+          <a href="/contact.html">문의</a>
+          <a href="/privacy.html">개인정보처리방침</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

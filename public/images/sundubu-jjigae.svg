@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff2ea" />
+      <stop offset="100%" stop-color="#ffd8c8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg)" />
+  <ellipse cx="400" cy="340" rx="220" ry="92" fill="#4f342c" />
+  <ellipse cx="400" cy="318" rx="190" ry="68" fill="#fff8ef" />
+  <ellipse cx="400" cy="309" rx="176" ry="54" fill="#d7523a" />
+  <circle cx="345" cy="300" r="22" fill="#fffaf4" />
+  <circle cx="405" cy="292" r="18" fill="#fffaf4" />
+  <circle cx="456" cy="306" r="16" fill="#ffe7b3" />
+  <text x="64" y="108" font-size="42" font-weight="700" fill="#9a2f28">순두부찌개</text>
+  <text x="64" y="154" font-size="24" fill="#7d5f58">SUNDUBU JJIGAE</text>
+</svg>

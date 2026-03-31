@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0e6" />
+      <stop offset="100%" stop-color="#ffd7b8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg)" />
+  <ellipse cx="400" cy="340" rx="220" ry="92" fill="#4a342b" />
+  <ellipse cx="400" cy="318" rx="190" ry="68" fill="#fff8ef" />
+  <ellipse cx="400" cy="309" rx="176" ry="54" fill="#bd5a2d" />
+  <circle cx="320" cy="292" r="20" fill="#f1c77c" />
+  <circle cx="388" cy="300" r="24" fill="#f4d494" />
+  <circle cx="456" cy="290" r="22" fill="#9cc677" />
+  <text x="64" y="108" font-size="42" font-weight="700" fill="#8f4a24">닭볶음탕</text>
+  <text x="64" y="154" font-size="24" fill="#7d6456">DAKBOKKEUMTANG</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff5eb" />
+      <stop offset="100%" stop-color="#ffd6b0" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg)" />
+  <ellipse cx="400" cy="340" rx="220" ry="92" fill="#46332b" />
+  <ellipse cx="400" cy="318" rx="190" ry="68" fill="#fff8f0" />
+  <ellipse cx="400" cy="309" rx="176" ry="54" fill="#8e4f2c" />
+  <path d="M280 294c18-12 36-12 56 0" stroke="#f8d89c" stroke-width="14" stroke-linecap="round" fill="none" />
+  <path d="M350 288c26-14 52-14 80 4" stroke="#c98b57" stroke-width="14" stroke-linecap="round" fill="none" />
+  <path d="M452 294c22-10 42-8 64 10" stroke="#80a85d" stroke-width="12" stroke-linecap="round" fill="none" />
+  <text x="64" y="108" font-size="42" font-weight="700" fill="#7f4326">소불고기</text>
+  <text x="64" y="154" font-size="24" fill="#7a6358">BULGOGI</text>
+</svg>

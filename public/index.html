@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K Recipe | 우리집 집밥 레시피 홈</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="/">K Recipe</a>
+        <div class="nav-links">
+          <a class="is-active" href="/">홈</a>
+          <a href="/recipes.html">레시피</a>
+          <a href="/about.html">소개</a>
+          <a href="/contact.html">문의</a>
+          <a href="/privacy.html">개인정보처리방침</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">K RECIPE HOME</p>
+          <h1>우리집 집밥이 더 근사해지는 한식 레시피 앱</h1>
+          <p class="lead">
+            김치찜부터 갈비찜까지, 보기 좋은 이미지와 간단한 설명으로 누구나 편하게 둘러볼 수 있는 레시피 홈입니다.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/recipes.html">전체 레시피 보기</a>
+            <a class="btn btn-secondary" href="#featured">오늘의 추천 보기</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat-box">
+              <strong>10+</strong>
+              <span>한식 메뉴</span>
+            </div>
+            <div class="stat-box">
+              <strong>Easy</strong>
+              <span>보기 쉬운 UI</span>
+            </div>
+            <div class="stat-box">
+              <strong>Home</strong>
+              <span>홈페이지 구성</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>오늘의 추천 메뉴</h2>
+          <div id="featured-recipe" class="featured-placeholder">레시피를 불러오는 중...</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="featured" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>지금 바로 만들어보기 좋은 메뉴</h2>
+            <p>가볍게 둘러보고 마음에 드는 메뉴를 눌러 전체 라이브러리에서 자세히 확인해보세요.</p>
+          </div>
+          <div id="home-preview-grid" class="home-preview-grid"></div>
+
+          <div class="ad-slot ad-slot-wide" aria-label="광고 영역 안내">
+            <div>
+              <p class="eyebrow">ADVERTISEMENT</p>
+              <h3>이 영역은 추후 Google AdSense 배치에 활용할 수 있어요</h3>
+              <p class="meta">지금은 디자인용 안내 영역으로 두었고, 승인 후 광고 코드로 교체하면 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="section section-soft">
+        <div class="container story-grid">
+          <article class="info-panel">
+            <p class="eyebrow">ABOUT K RECIPE</p>
+            <h3>집밥을 더 사랑하게 만드는 레시피 홈</h3>
+            <p class="meta">
+              `K Recipe`는 가족이 함께 보기 편한 구조를 목표로 만든 웹앱입니다. 메인 홈과 레시피 라이브러리를 중심으로, 누구나 쉽게 메뉴를 둘러볼 수 있게 구성했습니다.
+            </p>
+            <ul class="feature-list">
+              <li>누구나 볼 수 있는 공개 홈 화면</li>
+              <li>이미지 중심의 보기 좋은 메뉴 목록</li>
+              <li>모바일에서도 편하게 보는 한식 레시피 구성</li>
+            </ul>
+          </article>
+
+          <article class="info-panel">
+            <p class="eyebrow">HOW TO ENJOY</p>
+            <h3>이렇게 쓰면 더 편해요</h3>
+            <div class="step-list">
+              <div class="step-item"><strong>1</strong><p>홈에서 오늘의 추천 메뉴를 확인합니다.</p></div>
+              <div class="step-item"><strong>2</strong><p>`레시피 보기`에서 전체 메뉴를 검색하고 고릅니다.</p></div>
+              <div class="step-item"><strong>3</strong><p>마음에 드는 메뉴를 골라 재료와 만드는 법을 바로 확인합니다.</p></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cta-band">
+          <div>
+            <p class="eyebrow">RECIPE LIBRARY</p>
+            <h3>목록형으로 정리된 전체 레시피 라이브러리 보기</h3>
+            <p class="meta">검색과 카테고리 선택으로 원하는 메뉴를 더 빠르게 찾을 수 있습니다.</p>
+          </div>
+          <a class="btn btn-primary" href="/recipes.html">전체 레시피 둘러보기</a>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container info-strip-grid">
+          <article class="info-panel">
+            <p class="eyebrow">FOR READERS</p>
+            <h3>가볍게 보고 바로 따라 하는 집밥 레시피</h3>
+            <p class="meta">복잡한 기능 없이 메뉴를 빠르게 훑어보고, 재료와 순서를 자연스럽게 확인할 수 있도록 구성했습니다.</p>
+          </article>
+          <article class="info-panel ad-slot">
+            <p class="eyebrow">ADS READY</p>
+            <h3>콘텐츠 흐름을 해치지 않는 광고 위치</h3>
+            <p class="meta">홈 중간/하단에 여백형 광고 영역을 두어, 나중에 애드센스 삽입 시에도 레이아웃이 무너지지 않게 설계했습니다.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner footer-stack">
+        <div>
+          <strong>K Recipe</strong>
+          <p class="meta">집밥 메뉴를 더 쉽고 예쁘게 🍲</p>
+        </div>
+        <div class="footer-links">
+          <a href="/">홈</a>
+          <a href="/recipes.html">레시피</a>
+          <a href="/about.html">소개</a>
+          <a href="/contact.html">문의</a>
+          <a href="/privacy.html">개인정보처리방침</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

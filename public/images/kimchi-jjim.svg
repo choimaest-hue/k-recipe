@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0e8" />
+      <stop offset="100%" stop-color="#ffd3c2" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg)" />
+  <ellipse cx="400" cy="340" rx="220" ry="92" fill="#51332a" />
+  <ellipse cx="400" cy="318" rx="190" ry="68" fill="#fff8f0" />
+  <ellipse cx="400" cy="309" rx="176" ry="54" fill="#cf4b36" />
+  <path d="M270 300c35-26 62-24 94 0" stroke="#f6c96d" stroke-width="14" stroke-linecap="round" fill="none" />
+  <path d="M404 290c26-18 52-16 80 2" stroke="#84a85d" stroke-width="12" stroke-linecap="round" fill="none" />
+  <circle cx="468" cy="308" r="16" fill="#f7de95" />
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#9a2f28">김치찜</text>
+  <text x="64" y="154" font-size="24" fill="#7d5e56">KIMCHI JJIM</text>
+</svg>

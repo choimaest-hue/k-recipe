@@ -1,0 +1,15 @@
+{
+  "name": "k-recipe-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "K Recipe web app with a protected admin page, Vercel-ready API routes, and optional Supabase storage.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "express": "^4.21.2"
+  }
+}

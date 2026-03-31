@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="100%" stop-color="#ffe0bc" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg)" />
+  <ellipse cx="400" cy="340" rx="220" ry="92" fill="#503830" />
+  <ellipse cx="400" cy="318" rx="190" ry="68" fill="#fff9f1" />
+  <ellipse cx="400" cy="309" rx="176" ry="54" fill="#875c38" />
+  <path d="M278 304c42-32 90-34 132-4" stroke="#d8b073" stroke-width="12" stroke-linecap="round" fill="none" />
+  <path d="M370 314c38-28 84-30 124-2" stroke="#f3d489" stroke-width="12" stroke-linecap="round" fill="none" />
+  <path d="M310 286c18-12 30-14 48-8" stroke="#81b565" stroke-width="10" stroke-linecap="round" fill="none" />
+  <text x="64" y="108" font-size="42" font-weight="700" fill="#7b4e2f">잡채</text>
+  <text x="64" y="154" font-size="24" fill="#7f685d">JAPCHAE</text>
+</svg>

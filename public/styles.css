@@ -276,14 +276,63 @@ button.secondary,
 }
 
 .ad-slot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  gap: 12px;
   min-height: 120px;
   padding: 18px;
   border: 1px dashed #e5b9aa;
   border-radius: 18px;
   background: linear-gradient(180deg, #fffaf7 0%, #fff3ed 100%);
+}
+
+.ad-slot-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ad-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(217, 72, 65, 0.12);
+  color: var(--brand-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.ad-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ad-slot-body {
+  width: 100%;
+  min-height: 90px;
+}
+
+.ad-slot-placeholder {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(229, 185, 170, 0.5);
+  color: var(--muted);
+}
+
+.ad-slot-placeholder strong {
+  color: var(--brand-dark);
+}
+
+.ad-slot-placeholder code {
+  font-family: Consolas, monospace;
+  font-size: 0.85rem;
 }
 
 .ad-slot-wide {

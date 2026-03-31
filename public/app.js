@@ -27,6 +27,32 @@ const COMMON_INGREDIENTS = [
   "김",
   "참치"
 ];
+const SAUCE_ALIASES = {
+  고추장: ["고추장"],
+  된장: ["된장"],
+  간장: ["간장", "국간장", "진간장", "양조간장"],
+  고춧가루: ["고춧가루"],
+  쌈장: ["쌈장"],
+  식초: ["식초"],
+  설탕: ["설탕"],
+  맛술: ["맛술", "미림"],
+  참기름: ["참기름"],
+  들기름: ["들기름"],
+  굴소스: ["굴소스"],
+  케첩: ["케첩"],
+  마요네즈: ["마요네즈"],
+  물엿: ["물엿", "올리고당"]
+};
+const INGREDIENT_NORMALIZE_MAP = {
+  달걀: "계란",
+  파: "대파",
+  쪽파: "대파",
+  당근채: "당근",
+  당근채썬것: "당근",
+  채썬당근: "당근",
+  양배추: "양배추",
+  떡국떡: "떡"
+};
 const INGREDIENT_ALIASES = {
   김치: ["김치", "묵은지"],
   돼지고기: ["돼지고기", "삼겹살", "목살", "앞다리살", "갈비", "베이컨", "햄"],
@@ -52,8 +78,11 @@ const INGREDIENT_ALIASES = {
 
 const state = {
   recipes: [],
+  availableIngredients: [],
+  availableSauces: [],
   activeCategory: "전체",
   selectedIngredients: new Set(),
+  selectedSauces: new Set(),
   selectedStyle: "상관없음",
   selectedSpicy: "상관없음",
   currentPage: 1,
@@ -75,6 +104,88 @@ function escapeHtml(value = "") {
 
 function normalizeText(value = "") {
   return String(value).replace(/\s+/g, "").toLowerCase();
+}
+
+function normalizeIngredientName(value = "") {
+  const name = String(value).trim();
+  return INGREDIENT_NORMALIZE_MAP[name] || name;
+}
+
+function canonicalizeIngredientName(value = "") {
+  const normalized = normalizeIngredientName(value);
+  const compact = normalizeText(normalized);
+
+  for (const [base, aliases] of Object.entries(INGREDIENT_ALIASES)) {
+    const candidates = [base, ...aliases];
+    const matched = candidates.some((alias) => {
+      const aliasCompact = normalizeText(alias);
+      return compact.includes(aliasCompact) || aliasCompact.includes(compact);
+    });
+
+    if (matched) {
+      return base;
+    }
+  }
+
+  return normalized;
+}
+
+function extractIngredientName(raw = "") {
+  const cleaned = String(raw)
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/[·,/~]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const stripped = cleaned
+    .replace(/\d+(?:\.\d+)?\s*(?:kg|g|ml|l|컵|큰술|작은술|큰스푼|작은스푼|개|모|대|줄|장|마리|알|봉|포기|줌|조각|스푼)/gi, " ")
+    .replace(/\d+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const NOISE_TOKENS = new Set([
+    "약간", "조금", "적당량", "넉넉히", "약", "기호에", "따라", "기호", "가능",
+    "한", "두", "세", "네", "반",
+    "한개", "두개", "세개", "네개", "반개",
+    "개", "모", "대", "줄", "장", "마리", "알", "봉", "포기", "줌", "조각", "컵", "큰술", "작은술", "스푼"
+  ]);
+
+  const base = stripped || cleaned;
+  const tokens = base
+    .split(" ")
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .filter((token) => !NOISE_TOKENS.has(token));
+
+  if (!tokens.length) return "";
+
+  const pairCandidate = tokens.slice(0, 2).join(" ").trim();
+  const singleCandidate = tokens[0] || "";
+
+  const pairCanonical = canonicalizeIngredientName(pairCandidate);
+  const singleCanonical = canonicalizeIngredientName(singleCandidate);
+
+  // Prefer a canonical pair only when it resolves to a known canonical ingredient.
+  if (pairCanonical && INGREDIENT_ALIASES[pairCanonical]) {
+    return pairCanonical;
+  }
+
+  return singleCanonical || pairCanonical;
+}
+
+function buildIngredientInventory(recipes) {
+  const set = new Set(COMMON_INGREDIENTS.map(normalizeIngredientName));
+
+  recipes.forEach((recipe) => {
+    (recipe.ingredients || []).forEach((item) => {
+      const extracted = extractIngredientName(item);
+      if (extracted) set.add(extracted);
+    });
+  });
+
+  return Array.from(set)
+    .filter((item) => item.length > 0)
+    .sort((a, b) => a.localeCompare(b, "ko"));
 }
 
 function getRecipeImage(recipe) {
@@ -151,8 +262,77 @@ function matchesIngredient(recipe, ingredient) {
   return aliases.some((alias) => haystack.includes(normalizeText(alias)));
 }
 
+function matchesSauce(recipe, sauce) {
+  const haystack = normalizeText([
+    recipe.title,
+    recipe.subtitle,
+    recipe.description,
+    ...(recipe.ingredients || [])
+  ].join(" "));
+
+  const aliases = SAUCE_ALIASES[sauce] || [sauce];
+  return aliases.some((alias) => haystack.includes(normalizeText(alias)));
+}
+
 function getMatchedIngredients(recipe) {
   return Array.from(state.selectedIngredients).filter((ingredient) => matchesIngredient(recipe, ingredient));
+}
+
+function getRecipeCoreIngredients(recipe) {
+  const fromRecipe = (recipe.ingredients || [])
+    .map(extractIngredientName)
+    .map(normalizeIngredientName)
+    .filter(Boolean);
+
+  return Array.from(new Set(fromRecipe));
+}
+
+function getIngredientGapInfo(recipe, matchedIngredients) {
+  const coreIngredients = getRecipeCoreIngredients(recipe);
+
+  if (state.selectedIngredients.size === 0) {
+    return {
+      level: "확인 필요",
+      text: "재료를 선택하면 부족 정도를 계산해드려요.",
+      className: "is-pending"
+    };
+  }
+
+  if (coreIngredients.length === 0) {
+    return {
+      level: "판단 어려움",
+      text: "재료 정보가 적어 부족 정도를 정확히 계산하기 어려워요.",
+      className: "is-pending"
+    };
+  }
+
+  const missingIngredients = coreIngredients.filter((item) => !state.selectedIngredients.has(item));
+  const missingCount = missingIngredients.length;
+
+  if (missingCount === 0) {
+    return {
+      level: "완비",
+      text: "재료 부족 0개 · 지금 바로 만들 수 있어요.",
+      className: "is-good",
+      missingCount: 0
+    };
+  }
+
+  if (missingCount <= 2) {
+    return {
+      level: "조금 부족",
+      text: `재료 부족 ${missingCount}개 · ${missingIngredients.slice(0, 3).join(", ")}`,
+      className: "is-mid",
+      missingCount
+    };
+  }
+
+  return {
+    level: "많이 부족",
+    text: `재료 부족 ${missingCount}개 · ${missingIngredients.slice(0, 3).join(", ")}`,
+    className: "is-low",
+    missingCount
+  };
 }
 
 function createFeaturedMarkup(recipe) {
@@ -245,7 +425,7 @@ function createRecipeRowMarkup(recipe, index) {
   `;
 }
 
-function createRecommendCardMarkup(recipe, score, matchedIngredients) {
+function createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSauces, gapInfo) {
   const reasons = [];
 
   if (matchedIngredients.length) {
@@ -256,6 +436,9 @@ function createRecommendCardMarkup(recipe, score, matchedIngredients) {
   }
   if (state.selectedSpicy !== "상관없음") {
     reasons.push(`맵기 ${getSpicyLevelLabel(state.selectedSpicy)} 기준에 가까워요.`);
+  }
+  if (state.selectedSauces.size > 0 && matchedSauces.length) {
+    reasons.push(`${matchedSauces.join(", ")} 소스와 잘 맞아요.`);
   }
 
   return `
@@ -272,7 +455,11 @@ function createRecommendCardMarkup(recipe, score, matchedIngredients) {
         ${(matchedIngredients.length
           ? matchedIngredients.map((item) => `<span class="match-tag">${escapeHtml(item)}</span>`).join("")
           : '<span class="match-tag">재료 범용 추천</span>')}
+        ${(state.selectedSauces.size > 0 && matchedSauces.length
+          ? matchedSauces.map((item) => `<span class="match-tag">소스 ${escapeHtml(item)}</span>`).join("")
+          : "")}
       </div>
+      <p class="ingredient-gap ${escapeHtml(gapInfo.className || "is-pending")}">재료 상태 · ${escapeHtml(gapInfo.level)}<br />${escapeHtml(gapInfo.text)}</p>
       <p class="helper-inline">${escapeHtml(reasons[0] || "지금 만들기 쉬운 메뉴로 골라드렸어요.")}</p>
       <a class="text-link" href="/recipes.html">상세 레시피 보기 →</a>
     </article>
@@ -333,7 +520,17 @@ function renderIngredientSelector() {
   const ingredientContainer = document.getElementById("ingredient-chip-list");
   if (!ingredientContainer) return;
 
-  const availableIngredients = COMMON_INGREDIENTS.filter((ingredient) => state.recipes.some((recipe) => matchesIngredient(recipe, ingredient)));
+  const ingredientSearchInput = document.getElementById("ingredient-search");
+  const ingredientKeyword = normalizeText(ingredientSearchInput?.value || "");
+
+  const availableIngredients = state.availableIngredients
+    .filter((ingredient) => state.recipes.some((recipe) => matchesIngredient(recipe, ingredient)))
+    .filter((ingredient) => !ingredientKeyword || normalizeText(ingredient).includes(ingredientKeyword));
+
+  if (!availableIngredients.length) {
+    ingredientContainer.innerHTML = '<p class="ingredient-empty">검색된 재료가 없습니다. 다른 키워드를 입력해 보세요.</p>';
+    return;
+  }
 
   ingredientContainer.innerHTML = availableIngredients
     .map(
@@ -358,8 +555,88 @@ function renderIngredientSelector() {
         state.selectedIngredients.add(ingredient);
       }
       renderIngredientSelector();
+      renderIngredientSuggestionDropdown();
       renderRecommender();
       renderRecipeLibrary();
+    });
+  });
+}
+
+function renderIngredientSuggestionDropdown() {
+  const suggestionBox = document.getElementById("ingredient-suggest-list");
+  const ingredientSearchInput = document.getElementById("ingredient-search");
+  if (!suggestionBox || !ingredientSearchInput) return;
+
+  const keyword = normalizeText(ingredientSearchInput.value || "");
+  if (!keyword) {
+    suggestionBox.innerHTML = "";
+    suggestionBox.hidden = true;
+    return;
+  }
+
+  const suggestions = state.availableIngredients
+    .filter((item) => normalizeText(item).includes(keyword) && !state.selectedIngredients.has(item))
+    .slice(0, 8);
+
+  if (!suggestions.length) {
+    suggestionBox.innerHTML = '<p class="ingredient-suggest-empty">추천 재료가 없습니다.</p>';
+    suggestionBox.hidden = false;
+    return;
+  }
+
+  suggestionBox.innerHTML = suggestions
+    .map((item) => `<button type="button" class="ingredient-suggest-item" data-suggest-ingredient="${escapeHtml(item)}">${escapeHtml(item)}</button>`)
+    .join("");
+  suggestionBox.hidden = false;
+
+  suggestionBox.querySelectorAll("[data-suggest-ingredient]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const ingredient = button.dataset.suggestIngredient || "";
+      if (!ingredient) return;
+      state.selectedIngredients.add(ingredient);
+      ingredientSearchInput.value = "";
+      renderIngredientSelector();
+      renderIngredientSuggestionDropdown();
+      renderRecommender();
+      renderRecipeLibrary();
+    });
+  });
+}
+
+function renderSauceSelector() {
+  const sauceContainer = document.getElementById("sauce-chip-list");
+  if (!sauceContainer) return;
+
+  if (!state.availableSauces.length) {
+    sauceContainer.innerHTML = '<p class="ingredient-empty">등록된 레시피에서 선택 가능한 소스를 찾지 못했습니다.</p>';
+    return;
+  }
+
+  sauceContainer.innerHTML = state.availableSauces
+    .map(
+      (sauce) => `
+        <button
+          type="button"
+          class="chip sauce-chip ${state.selectedSauces.has(sauce) ? "is-selected" : ""}"
+          data-sauce="${escapeHtml(sauce)}"
+        >
+          ${escapeHtml(sauce)}
+        </button>
+      `
+    )
+    .join("");
+
+  sauceContainer.querySelectorAll("[data-sauce]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const sauce = button.dataset.sauce || "";
+      if (!sauce) return;
+      if (state.selectedSauces.has(sauce)) {
+        state.selectedSauces.delete(sauce);
+      } else {
+        state.selectedSauces.add(sauce);
+      }
+      renderSauceSelector();
+      renderRecommender();
     });
   });
 }
@@ -392,28 +669,36 @@ function getRecommendedRecipes() {
   return state.recipes
     .map((recipe) => {
       const matchedIngredients = getMatchedIngredients(recipe);
+      const matchedSauces = Array.from(state.selectedSauces).filter((sauce) => matchesSauce(recipe, sauce));
+      const gapInfo = getIngredientGapInfo(recipe, matchedIngredients);
       let score = matchedIngredients.length * 4;
 
       if (state.selectedIngredients.size > 0 && matchedIngredients.length === state.selectedIngredients.size) {
         score += 2;
       }
       if (state.selectedStyle !== "상관없음" && getRecipeStyle(recipe) === state.selectedStyle) {
-        score += 2;
+        score += 8;
       }
       if (state.selectedSpicy !== "상관없음" && normalizeSpicyLevel(recipe.spicyLevel) === normalizeSpicyLevel(state.selectedSpicy)) {
         score += 2;
+      }
+      if (state.selectedSauces.size > 0) {
+        score += matchedSauces.length * 3;
+        if (matchedSauces.length === state.selectedSauces.size) {
+          score += 2;
+        }
+      }
+      if (typeof gapInfo.missingCount === "number") {
+        score += Math.max(0, 3 - gapInfo.missingCount);
       }
       if (state.selectedIngredients.size === 0 && state.selectedStyle === "상관없음" && state.selectedSpicy === "상관없음") {
         score += 1;
       }
 
-      return { recipe, score, matchedIngredients };
+      return { recipe, score, matchedIngredients, matchedSauces, gapInfo };
     })
-    .filter(({ score, matchedIngredients, recipe }) => {
+    .filter(({ score, matchedIngredients, matchedSauces, recipe }) => {
       if (state.selectedIngredients.size > 0 && matchedIngredients.length === 0) {
-        return false;
-      }
-      if (state.selectedStyle !== "상관없음" && getRecipeStyle(recipe) !== state.selectedStyle) {
         return false;
       }
       if (state.selectedSpicy !== "상관없음" && normalizeSpicyLevel(recipe.spicyLevel) !== normalizeSpicyLevel(state.selectedSpicy) && score < 3) {
@@ -482,10 +767,13 @@ function renderRecommender() {
   const selectedIngredientText = state.selectedIngredients.size
     ? `선택한 재료 ${Array.from(state.selectedIngredients).join(", ")} 기준으로 추천했어요.`
     : "재료를 고르면 추천 정확도가 더 올라갑니다.";
+  const selectedSauceText = state.selectedSauces.size
+    ? ` 소스 ${Array.from(state.selectedSauces).join(", ")}도 함께 반영했습니다.`
+    : "";
 
-  summary.textContent = `${selectedIngredientText} 현재 ${recommendations.length}개의 추천 메뉴를 보여드립니다.`;
+  summary.textContent = `${selectedIngredientText}${selectedSauceText} 현재 ${recommendations.length}개의 추천 메뉴를 보여드립니다.`;
   results.innerHTML = recommendations
-    .map(({ recipe, score, matchedIngredients }) => createRecommendCardMarkup(recipe, score, matchedIngredients))
+    .map(({ recipe, score, matchedIngredients, matchedSauces, gapInfo }) => createRecommendCardMarkup(recipe, score, matchedIngredients, matchedSauces, gapInfo))
     .join("");
 }
 
@@ -536,15 +824,36 @@ function bindInteractiveControls() {
     });
   }
 
+  const ingredientSearchInput = document.getElementById("ingredient-search");
+  if (ingredientSearchInput) {
+    ingredientSearchInput.addEventListener("input", () => {
+      renderIngredientSelector();
+      renderIngredientSuggestionDropdown();
+    });
+
+    ingredientSearchInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      const suggestionBox = document.getElementById("ingredient-suggest-list");
+      const first = suggestionBox?.querySelector("[data-suggest-ingredient]");
+      if (!first) return;
+      event.preventDefault();
+      first.click();
+    });
+  }
+
   const resetButton = document.getElementById("reset-recommender");
   if (resetButton) {
     resetButton.addEventListener("click", () => {
       state.selectedIngredients.clear();
+      state.selectedSauces.clear();
       state.selectedStyle = "상관없음";
       state.selectedSpicy = "상관없음";
       if (styleSelect) styleSelect.value = "상관없음";
       if (spicySelect) spicySelect.value = "상관없음";
+      if (ingredientSearchInput) ingredientSearchInput.value = "";
       renderIngredientSelector();
+      renderIngredientSuggestionDropdown();
+      renderSauceSelector();
       renderRecommender();
       renderRecipeLibrary();
     });
@@ -561,10 +870,14 @@ async function loadRecipes() {
     const response = await fetch("/api/recipes");
     const recipes = await response.json();
     state.recipes = Array.isArray(recipes) ? recipes : [];
+    state.availableIngredients = buildIngredientInventory(state.recipes);
+    state.availableSauces = Object.keys(SAUCE_ALIASES).filter((sauce) => state.recipes.some((recipe) => matchesSauce(recipe, sauce)));
 
     renderHome(state.recipes);
     renderCategoryFilters(state.recipes);
     renderIngredientSelector();
+    renderIngredientSuggestionDropdown();
+    renderSauceSelector();
     renderRecommender();
     renderRecipeLibrary();
     bindInteractiveControls();

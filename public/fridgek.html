@@ -17,7 +17,6 @@
           <a class="is-active" href="/fridgek.html">냉장고를 부탁K</a>
           <a href="/recipes.html">레시피</a>
           <a href="/about.html">소개</a>
-          <a href="/contact.html">문의</a>
         </div>
       </div>
     </nav>
@@ -57,8 +56,7 @@
         <div class="fridge-grid">
           <article class="info-panel">
             <p class="eyebrow">STEP 1</p>
-            <h3>재료와 취향 선택</h3>
-            <div id="ingredient-chip-list" class="chip-row ingredient-chip-list"></div>
+            <h3>취향 먼저 선택</h3>
 
             <div class="grid-2">
               <label>
@@ -85,6 +83,21 @@
                 </select>
               </label>
             </div>
+
+            <label>
+              보유 재료 검색
+              <input id="ingredient-search" class="ingredient-search" type="search" placeholder="예: 김치, 두부, 감자" />
+            </label>
+
+            <div id="ingredient-suggest-list" class="ingredient-suggest-list" hidden></div>
+
+            <div id="ingredient-chip-list" class="chip-row ingredient-chip-list"></div>
+
+            <label>
+              소스 선택 (선택사항)
+              <small class="meta">소스를 고르지 않으면 추천 점수 계산에서 제외됩니다.</small>
+            </label>
+            <div id="sauce-chip-list" class="chip-row sauce-chip-list"></div>
 
             <div class="hero-actions">
               <button class="btn btn-secondary" id="reset-recommender" type="button">선택 초기화</button>
@@ -114,6 +127,8 @@
         </div>
       </div>
     </footer>
+
+    <a class="floating-contact-btn" href="/contact.html" aria-label="문의 페이지 열기">문의</a>
 
   <div id="recipe-modal" class="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
     <div class="modal-backdrop" id="modal-backdrop"></div>

@@ -170,6 +170,10 @@ h1 {
   padding: 18px 0 54px;
 }
 
+.section-tight {
+  padding: 12px 0 26px;
+}
+
 .section-soft {
   background: linear-gradient(180deg, rgba(255, 244, 238, 0.55) 0%, rgba(255, 251, 248, 0.85) 100%);
   border-top: 1px solid rgba(240, 221, 215, 0.8);
@@ -367,10 +371,134 @@ button.secondary,
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.app-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.shortcut-card {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+
+.shortcut-card strong {
+  color: var(--brand-dark);
+}
+
+.shortcut-card span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.section-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.section-tab {
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--brand-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.section-tab:hover {
+  background: rgba(217, 72, 65, 0.16);
+}
+
 .page-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+.fridge-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+}
+
+.ingredient-chip-list {
+  margin: 12px 0 16px;
+}
+
+.ingredient-chip {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+}
+
+.ingredient-chip:hover {
+  background: var(--surface-soft);
+  color: var(--brand-dark);
+}
+
+.ingredient-chip.is-selected {
+  background: var(--brand);
+  color: #fff;
+}
+
+.recommend-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.recommend-card {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fffaf8;
+}
+
+.recommend-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.recommend-score {
+  color: var(--brand-dark);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.match-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0 6px;
+}
+
+.match-tag {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(217, 72, 65, 0.12);
+  color: var(--brand-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.helper-inline {
+  margin: 0;
+  color: var(--muted);
+}
+
+.search-shell {
+  display: grid;
+  gap: 14px;
 }
 
 .policy-stack {
@@ -562,6 +690,10 @@ button.secondary,
   padding: 20px 0 32px;
 }
 
+.mobile-dock {
+  display: none;
+}
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -573,19 +705,36 @@ button.secondary,
   align-items: center;
 }
 
+.footer-nav-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
 .footer-links {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-.footer-links a {
+.legal-links {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 2px;
+}
+
+.footer-links a,
+.legal-links a {
   text-decoration: none;
   color: var(--muted);
   font-weight: 700;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.legal-links a:hover {
   color: var(--brand-dark);
 }
 
@@ -675,7 +824,9 @@ textarea {
   .hero-grid,
   .page-hero-inner,
   .story-grid,
+  .app-shortcuts,
   .page-grid,
+  .fridge-grid,
   .info-strip-grid,
   .grid-2,
   .details-grid,
@@ -689,12 +840,23 @@ textarea {
     align-items: flex-start;
   }
 
+  .footer-nav-group,
+  .footer-links,
+  .legal-links {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
   .recipe-thumb {
     height: 220px;
   }
 }
 
 @media (max-width: 640px) {
+  body {
+    padding-bottom: 78px;
+  }
+
   .container {
     width: min(1120px, calc(100% - 20px));
   }
@@ -739,5 +901,32 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
+  }
+
+  .mobile-dock {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 14px 32px rgba(55, 22, 11, 0.14);
+  }
+
+  .mobile-dock a {
+    padding: 10px 6px;
+    border-radius: 12px;
+    background: var(--surface-soft);
+    color: var(--brand-dark);
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.84rem;
+    font-weight: 800;
   }
 }

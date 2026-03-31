@@ -138,7 +138,7 @@
     "description": "칼칼하면서도 깊은 국물 덕분에 비 오는 날 특히 잘 어울리는 메뉴입니다.",
     "servings": "3인분",
     "cookTime": "약 50분",
-    "spicyLevel": "상",
+    "spicyLevel": "아주매움",
     "image": "/images/yukgaejang.svg",
     "ingredients": [
       "소고기 양지 300g",
@@ -346,7 +346,7 @@
     "description": "불향 가득한 매콤달콤 제육볶음으로 상추쌈까지 완벽한 메뉴입니다.",
     "servings": "2~3인분",
     "cookTime": "약 30분",
-    "spicyLevel": "상",
+    "spicyLevel": "아주매움",
     "image": "/images/jeyuk-bokkeum.svg",
     "ingredients": [
       "돼지고기 앞다리살 500g",
@@ -398,7 +398,7 @@
     "description": "짭조름하고 매콤한 양념 덕분에 밥과 아주 잘 어울리는 메뉴입니다.",
     "servings": "2인분",
     "cookTime": "약 20분",
-    "spicyLevel": "상",
+    "spicyLevel": "아주매움",
     "image": "/images/ojingeo-bokkeum.svg",
     "ingredients": [
       "오징어 2마리",

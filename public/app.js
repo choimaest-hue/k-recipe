@@ -1,4 +1,10 @@
 const FALLBACK_IMAGE = "/images/default-recipe.svg";
+const SPICY_LEVEL_META = {
+  하: { count: 0, label: "맵지 않음", icon: "🥛" },
+  중: { count: 1, label: "조금 매운", icon: "🌶️" },
+  상: { count: 2, label: "매운", icon: "🌶️" },
+  아주매움: { count: 3, label: "아주 매운", icon: "🌶️" }
+};
 const COMMON_INGREDIENTS = [
   "김치",
   "돼지고기",
@@ -79,20 +85,43 @@ function getCategory(recipe) {
   return recipe?.category?.trim() ? recipe.category.trim() : "집밥";
 }
 
+function normalizeSpicyLevel(value = "") {
+  const input = String(value).trim().toLowerCase();
+  if (!input || input === "상관없음") return "상관없음";
+
+  if (["하", "순한", "순한맛", "mild", "low", "1"].includes(input)) return "하";
+  if (["중", "보통", "보통맛", "normal", "medium", "2"].includes(input)) return "중";
+  if (["상", "매운", "매운맛", "hot", "3"].includes(input)) return "상";
+  if (["아주매움", "아주 매움", "아주매운맛", "매우매움", "veryhot", "extra hot", "4"].includes(input)) return "아주매움";
+
+  return "중";
+}
+
 function getSpicyLevelCount(spicyLevel) {
-  if (spicyLevel === "하") return 1;
-  if (spicyLevel === "중") return 2;
-  if (spicyLevel === "상") return 3;
-  return 0;
+  const normalized = normalizeSpicyLevel(spicyLevel);
+  return SPICY_LEVEL_META[normalized]?.count || 0;
+}
+
+function getSpicyLevelLabel(spicyLevel) {
+  const normalized = normalizeSpicyLevel(spicyLevel);
+  return SPICY_LEVEL_META[normalized]?.label || "맵기 정보 없음";
+}
+
+function getSpicySymbol(spicyLevel) {
+  const normalized = normalizeSpicyLevel(spicyLevel);
+  return SPICY_LEVEL_META[normalized]?.icon || "🙂";
 }
 
 function renderSpicyBadge(spicyLevel) {
+  const normalized = normalizeSpicyLevel(spicyLevel);
   const count = getSpicyLevelCount(spicyLevel);
+  const label = getSpicyLevelLabel(normalized);
+  const symbol = getSpicySymbol(normalized);
   if (!count) {
-    return '<span class="badge spicy-badge" aria-label="맵기 정보 없음">🌶️ -</span>';
+    return `<span class="badge spicy-badge" aria-label="${escapeHtml(label)}">${escapeHtml(symbol)} ${escapeHtml(label)}</span>`;
   }
 
-  return `<span class="badge spicy-badge" aria-label="맵기 ${escapeHtml(spicyLevel)}">${"🌶️".repeat(count)}</span>`;
+  return `<span class="badge spicy-badge" aria-label="${escapeHtml(label)}">${symbol.repeat(count)} ${escapeHtml(label)}</span>`;
 }
 
 function getRecipeStyle(recipe) {
@@ -226,7 +255,7 @@ function createRecommendCardMarkup(recipe, score, matchedIngredients) {
     reasons.push(`${state.selectedStyle} 취향과 잘 맞습니다.`);
   }
   if (state.selectedSpicy !== "상관없음") {
-    reasons.push(`맵기 ${state.selectedSpicy} 기준에 가까워요.`);
+    reasons.push(`맵기 ${getSpicyLevelLabel(state.selectedSpicy)} 기준에 가까워요.`);
   }
 
   return `
@@ -371,7 +400,7 @@ function getRecommendedRecipes() {
       if (state.selectedStyle !== "상관없음" && getRecipeStyle(recipe) === state.selectedStyle) {
         score += 2;
       }
-      if (state.selectedSpicy !== "상관없음" && recipe.spicyLevel === state.selectedSpicy) {
+      if (state.selectedSpicy !== "상관없음" && normalizeSpicyLevel(recipe.spicyLevel) === normalizeSpicyLevel(state.selectedSpicy)) {
         score += 2;
       }
       if (state.selectedIngredients.size === 0 && state.selectedStyle === "상관없음" && state.selectedSpicy === "상관없음") {
@@ -387,7 +416,7 @@ function getRecommendedRecipes() {
       if (state.selectedStyle !== "상관없음" && getRecipeStyle(recipe) !== state.selectedStyle) {
         return false;
       }
-      if (state.selectedSpicy !== "상관없음" && recipe.spicyLevel !== state.selectedSpicy && score < 3) {
+      if (state.selectedSpicy !== "상관없음" && normalizeSpicyLevel(recipe.spicyLevel) !== normalizeSpicyLevel(state.selectedSpicy) && score < 3) {
         return false;
       }
       return score > 0;
@@ -502,7 +531,7 @@ function bindInteractiveControls() {
   const spicySelect = document.getElementById("spicy-select");
   if (spicySelect) {
     spicySelect.addEventListener("change", (event) => {
-      state.selectedSpicy = event.target.value;
+      state.selectedSpicy = normalizeSpicyLevel(event.target.value);
       renderRecommender();
     });
   }
@@ -559,8 +588,10 @@ loadRecipes();
 
 /* ── Modal ─────────────────────────────────── */
 function renderModalContent(recipe) {
+  const spicyLabel = getSpicyLevelLabel(recipe.spicyLevel);
+  const spicySymbol = getSpicySymbol(recipe.spicyLevel);
   const spicyCount = getSpicyLevelCount(recipe.spicyLevel);
-  const spicyStr = spicyCount ? "🌶️".repeat(spicyCount) : "-";
+  const spicyStr = spicyCount ? spicySymbol.repeat(spicyCount) : spicySymbol;
 
   return `
     <div class="modal-image-wrap">
@@ -571,7 +602,7 @@ function renderModalContent(recipe) {
         <span class="badge">${escapeHtml(getCategory(recipe))}</span>
         <span class="badge">${escapeHtml(recipe.servings || "-")}</span>
         <span class="badge">${escapeHtml(recipe.cookTime || "-")}</span>
-        <span class="badge spicy-badge" aria-label="맵기 ${escapeHtml(recipe.spicyLevel || "-")}">${spicyStr}</span>
+        <span class="badge spicy-badge" aria-label="${escapeHtml(spicyLabel)}">${spicyStr} ${escapeHtml(spicyLabel)}</span>
       </div>
       <h2 class="modal-title" id="modal-title">${escapeHtml(recipe.title)}</h2>
       <p class="modal-subtitle">${escapeHtml(recipe.subtitle || "")}</p>

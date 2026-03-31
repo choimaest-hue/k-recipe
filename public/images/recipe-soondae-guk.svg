@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-    <rect width="200" height="200" fill="#f8f8f8" rx="12"/>
-    <circle cx="100" cy="80" r="40" fill="#3B82F6" opacity="0.3"/>
-    <circle cx="100" cy="80" r="35" fill="#3B82F6"/>
-    <text x="100" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">
-      따뜻한순대국
-    </text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-recipesoondaeguksvg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff5ef"/>
+      <stop offset="100%" stop-color="#ffd9c6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-recipesoondaeguksvg)"/>
+
+  <ellipse cx="400" cy="372" rx="204" ry="58" fill="#2f221b" opacity="0.22"/>
+  <ellipse cx="400" cy="350" rx="194" ry="76" fill="#4f372a"/>
+  <ellipse cx="400" cy="314" rx="184" ry="46" fill="#f7f2ea"/>
+  <ellipse cx="400" cy="304" rx="168" ry="36" fill="#d8c2a2"/>
+  <ellipse cx="330" cy="308" rx="18" ry="10" fill="#7b4736"/>
+  <rect x="368" y="314" width="24" height="8" rx="4" fill="#6db06a"/>
+  <circle cx="427" cy="296" r="2" fill="#f7e8cc"/><circle cx="438" cy="300" r="2" fill="#f7e8cc"/>
+  <path d="M485 292 Q 479 274 485 258 Q 491 242 485 226" stroke="#ff9b88" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#7f3b2b" font-family="sans-serif">순대국</text>
+  <text x="64" y="154" font-size="23" fill="#7a6056" font-family="sans-serif">SOONDAE GUK</text>
+</svg>

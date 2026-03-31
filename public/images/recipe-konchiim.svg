@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-    <rect width="200" height="200" fill="#f8f8f8" rx="12"/>
-    <circle cx="100" cy="80" r="40" fill="#10B981" opacity="0.3"/>
-    <circle cx="100" cy="80" r="35" fill="#10B981"/>
-    <text x="100" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">
-      짭짤한콩조림
-    </text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-recipekonchiimsvg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f4ea"/>
+      <stop offset="100%" stop-color="#e8dec2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-recipekonchiimsvg)"/>
+
+  <ellipse cx="400" cy="378" rx="232" ry="60" fill="#2f221b" opacity="0.2"/>
+  <ellipse cx="400" cy="344" rx="222" ry="86" fill="#4d382e"/>
+  <ellipse cx="400" cy="322" rx="196" ry="70" fill="#f7f2ea"/>
+  <ellipse cx="400" cy="314" rx="176" ry="56" fill="#8d5a36"/>
+  <ellipse cx="330" cy="308" rx="9" ry="6" fill="#5f3e2f"/>
+  <ellipse cx="380" cy="318" rx="9" ry="6" fill="#5f3e2f"/>
+  <ellipse cx="435" cy="304" rx="9" ry="6" fill="#5f3e2f"/>
+  <circle cx="477" cy="308" r="2" fill="#f7e8cc"/><circle cx="488" cy="312" r="2" fill="#f7e8cc"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#7f3b2b" font-family="sans-serif">콩조림</text>
+  <text x="64" y="154" font-size="23" fill="#7a6056" font-family="sans-serif">KONG JORIM</text>
+</svg>

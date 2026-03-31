@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-    <rect width="200" height="200" fill="#f8f8f8" rx="12"/>
-    <circle cx="100" cy="80" r="40" fill="#10B981" opacity="0.3"/>
-    <circle cx="100" cy="80" r="35" fill="#10B981"/>
-    <text x="100" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">
-      쌈과함께하는보쌈
-    </text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-recipebossamsvg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5f8ed"/>
+      <stop offset="100%" stop-color="#d8efc5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-recipebossamsvg)"/>
+
+  <ellipse cx="400" cy="378" rx="232" ry="60" fill="#2f221b" opacity="0.2"/>
+  <ellipse cx="400" cy="344" rx="222" ry="86" fill="#4d382e"/>
+  <ellipse cx="400" cy="322" rx="196" ry="70" fill="#f7f2ea"/>
+  <ellipse cx="400" cy="314" rx="176" ry="56" fill="#d0a47a"/>
+  <ellipse cx="330" cy="308" rx="18" ry="11" fill="#efc6a3"/><path d="M316 309 Q 330 300 344 309" stroke="#d79b74" stroke-width="2" fill="none"/>
+  <ellipse cx="380" cy="318" rx="18" ry="11" fill="#efc6a3"/><path d="M366 319 Q 380 310 394 319" stroke="#d79b74" stroke-width="2" fill="none"/>
+  <path d="M417 312 Q 431 286 451 306 Q 435 318 417 312" fill="#7fbf64"/>
+  <path d="M469 322 L485 304 L501 322 Z" fill="#d83e3e"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#7f3b2b" font-family="sans-serif">보쌈</text>
+  <text x="64" y="154" font-size="23" fill="#7a6056" font-family="sans-serif">BOSSAM</text>
+</svg>

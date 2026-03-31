@@ -1,8 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-    <rect width="200" height="200" fill="#f8f8f8" rx="12"/>
-    <circle cx="100" cy="80" r="40" fill="#3B82F6" opacity="0.3"/>
-    <circle cx="100" cy="80" r="35" fill="#3B82F6"/>
-    <text x="100" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">
-      촉촉한칼국수
-    </text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-recipekalguksusvg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ef"/>
+      <stop offset="100%" stop-color="#ffe0c3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-recipekalguksusvg)"/>
+
+  <ellipse cx="400" cy="372" rx="204" ry="58" fill="#2f221b" opacity="0.22"/>
+  <ellipse cx="400" cy="350" rx="194" ry="76" fill="#4f372a"/>
+  <ellipse cx="400" cy="314" rx="184" ry="46" fill="#f7f2ea"/>
+  <ellipse cx="400" cy="304" rx="168" ry="36" fill="#e8c58d"/>
+  <path d="M296 308 C 320 292, 342 292, 366 310" stroke="#f6e0ae" stroke-width="11" stroke-linecap="round" fill="none"/>
+  <ellipse cx="380" cy="318" rx="18" ry="7" fill="#8ab96a"/>
+  <rect x="423" y="300" width="24" height="8" rx="4" fill="#6db06a"/>
+  <path d="M471 316 Q 485 302 499 316 Z" fill="#cda983"/><rect x="481" y="316" width="8" height="9" rx="2" fill="#f1dfc9"/>
+  <path d="M330 284 Q 324 266 330 250 Q 336 234 330 218" stroke="#ff9b88" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#7f3b2b" font-family="sans-serif">칼국수</text>
+  <text x="64" y="154" font-size="23" fill="#7a6056" font-family="sans-serif">KALGUKSU</text>
+</svg>

@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-    <rect width="200" height="200" fill="#f8f8f8" rx="12"/>
-    <circle cx="100" cy="80" r="40" fill="#EC4899" opacity="0.3"/>
-    <circle cx="100" cy="80" r="35" fill="#EC4899"/>
-    <text x="100" y="130" font-size="16" font-weight="bold" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">
-      떡볶이덮밥
-    </text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-recipetteokbokkiricesvg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0ea"/>
+      <stop offset="100%" stop-color="#ffc9ba"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-recipetteokbokkiricesvg)"/>
+
+  <ellipse cx="400" cy="372" rx="204" ry="58" fill="#2f221b" opacity="0.22"/>
+  <ellipse cx="400" cy="350" rx="194" ry="76" fill="#4f372a"/>
+  <ellipse cx="400" cy="314" rx="184" ry="46" fill="#f7f2ea"/>
+  <ellipse cx="400" cy="304" rx="168" ry="36" fill="#cb3f34"/>
+  <rect x="314" y="300" width="32" height="16" rx="8" fill="#f7ede3"/><path d="M316 308 H 344" stroke="#da4c43" stroke-width="3"/>
+  <ellipse cx="380" cy="326" rx="22" ry="12" fill="#f7f4ef"/>
+  <path d="M423 306 Q 435 292 447 306 Q 435 314 423 306" fill="#dc5144"/>
+  <ellipse cx="485" cy="316" rx="16" ry="11" fill="#fff5e5"/><circle cx="486" cy="316" r="5" fill="#f3ba2d"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#7f3b2b" font-family="sans-serif">떡볶이 덮밥</text>
+  <text x="64" y="154" font-size="23" fill="#7a6056" font-family="sans-serif">TTEOKBOKKI RICE</text>
+</svg>

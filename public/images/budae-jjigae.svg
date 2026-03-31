@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-bdj" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff8e0"/>
+      <stop offset="100%" stop-color="#ffe4a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-bdj)"/>
+  <!-- shadow -->
+  <ellipse cx="400" cy="380" rx="205" ry="55" fill="#3a2010" opacity="0.2"/>
+  <!-- pot body -->
+  <ellipse cx="400" cy="358" rx="200" ry="72" fill="#3a5080"/>
+  <!-- pot rim -->
+  <ellipse cx="400" cy="318" rx="192" ry="40" fill="#4a68a0"/>
+  <!-- broth -->
+  <ellipse cx="400" cy="310" rx="178" ry="32" fill="#e06030"/>
+  <!-- sausage 1 -->
+  <rect x="308" y="292" width="72" height="22" rx="11" fill="#f098a0"/>
+  <!-- sausage 2 -->
+  <rect x="390" y="288" width="68" height="22" rx="11" fill="#f47880"/>
+  <!-- sausage 3 -->
+  <rect x="338" y="308" width="54" height="20" rx="10" fill="#f08090"/>
+  <!-- cheese slice -->
+  <path d="M438 298 L462 298 L468 316 L432 316 Z" fill="#ffe050" opacity="0.9"/>
+  <!-- cheese holes -->
+  <circle cx="448" cy="307" r="3" fill="#e8c030" opacity="0.7"/>
+  <circle cx="458" cy="303" r="2" fill="#e8c030" opacity="0.7"/>
+  <!-- tofu -->
+  <rect x="290" y="302" width="26" height="18" rx="4" fill="#fff5e0" opacity="0.9"/>
+  <!-- green onion -->
+  <path d="M376 286 L382 310" stroke="#4a9050" stroke-width="5" stroke-linecap="round"/>
+  <path d="M412 284 L408 308" stroke="#4a9050" stroke-width="5" stroke-linecap="round"/>
+  <!-- ramen noodle wavy -->
+  <path d="M350 318 Q360 312 370 318 Q380 324 390 318 Q400 312 410 318 Q420 324 430 318 Q440 312 450 318" stroke="#f4e080" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <!-- bubble -->
+  <circle cx="330" cy="296" r="5" fill="#f86040" opacity="0.8"/>
+  <circle cx="470" cy="294" r="4" fill="#f84020" opacity="0.75"/>
+  <!-- steam -->
+  <path d="M370 272 Q363 257 370 244 Q377 231 370 218" stroke="#ffa060" stroke-width="4" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <path d="M420 268 Q413 253 420 240 Q427 227 420 214" stroke="#ffa060" stroke-width="4" fill="none" opacity="0.45" stroke-linecap="round"/>
+  <!-- pot handles -->
+  <ellipse cx="204" cy="332" rx="28" ry="12" fill="#3a5080" transform="rotate(-15 204 332)"/>
+  <ellipse cx="596" cy="332" rx="28" ry="12" fill="#3a5080" transform="rotate(15 596 332)"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#8a4020" font-family="sans-serif">부대찌개</text>
+  <text x="64" y="156" font-size="24" fill="#7a5828" font-family="sans-serif">BUDAE JJIGAE</text>
+</svg>

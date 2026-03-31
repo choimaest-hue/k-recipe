@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-gjt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff8e4"/>
+      <stop offset="100%" stop-color="#ffd888"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-gjt)"/>
+  <!-- pot shadow -->
+  <ellipse cx="400" cy="382" rx="200" ry="54" fill="#3a1808" opacity="0.2"/>
+  <!-- large pot body -->
+  <ellipse cx="400" cy="360" rx="196" ry="72" fill="#4a3828"/>
+  <!-- pot rim highlight -->
+  <ellipse cx="400" cy="320" rx="186" ry="42" fill="#5a4838"/>
+  <!-- dark brown broth -->
+  <ellipse cx="400" cy="312" rx="174" ry="34" fill="#7a3020"/>
+  <!-- potato chunk 1 -->
+  <rect x="318" y="290" width="54" height="40" rx="10" fill="#f0d888" stroke="#d8c060" stroke-width="2"/>
+  <!-- potato chunk 2 -->
+  <rect x="390" y="285" width="48" height="36" rx="9" fill="#eed880" stroke="#d8c060" stroke-width="2"/>
+  <!-- potato chunk 3 -->
+  <rect x="454" y="293" width="42" height="32" rx="8" fill="#f0d888" stroke="#d8c060" stroke-width="1.5"/>
+  <!-- pork bone - T shape -->
+  <rect x="385" y="248" width="30" height="70" rx="8" fill="#f8f0e0"/>
+  <rect x="368" y="248" width="64" height="22" rx="11" fill="#f8f0e0"/>
+  <!-- bone marrow tint -->
+  <circle cx="400" cy="270" r="6" fill="#e8d8c0" opacity="0.6"/>
+  <!-- perilla leaves (kkaennip) -->
+  <ellipse cx="342" cy="308" rx="14" ry="9" fill="#3a6830" transform="rotate(-20 342 308)" opacity="0.75"/>
+  <ellipse cx="465" cy="304" rx="12" ry="8" fill="#3a6830" transform="rotate(18 465 304)" opacity="0.7"/>
+  <!-- sesul (crown daisy) -->
+  <path d="M348 316 L354 308 L360 316" stroke="#5a9040" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- bubble -->
+  <circle cx="330" cy="306" r="5" fill="#c05030" opacity="0.7"/>
+  <circle cx="478" cy="304" r="4" fill="#c05030" opacity="0.65"/>
+  <!-- steam -->
+  <path d="M362 270 Q355 255 362 240 Q369 225 362 210" stroke="#e09040" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M435 265 Q428 250 435 235 Q442 220 435 205" stroke="#e09040" stroke-width="4" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <!-- pot handles -->
+  <ellipse cx="208" cy="334" rx="26" ry="11" fill="#4a3828" transform="rotate(-18 208 334)"/>
+  <ellipse cx="592" cy="334" rx="26" ry="11" fill="#4a3828" transform="rotate(18 592 334)"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#7a3010" font-family="sans-serif">감자탕</text>
+  <text x="64" y="156" font-size="24" fill="#6a4828" font-family="sans-serif">GAMJATANG</text>
+</svg>

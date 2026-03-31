@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-sdb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8e8ff"/>
+      <stop offset="100%" stop-color="#ddb0f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-sdb)"/>
+  <!-- pan shadow -->
+  <ellipse cx="400" cy="383" rx="213" ry="52" fill="#1a0820" opacity="0.25"/>
+  <!-- pan body -->
+  <ellipse cx="400" cy="361" rx="208" ry="68" fill="#2a1a30"/>
+  <!-- pan rim -->
+  <ellipse cx="400" cy="321" rx="198" ry="42" fill="#3a2840"/>
+  <!-- dark purple-red sauce -->
+  <ellipse cx="400" cy="311" rx="184" ry="34" fill="#6a1848"/>
+  <!-- sundae cylinders (blood sausage) -->
+  <rect x="306" y="285" width="56" height="36" rx="11" fill="#2a1018"/>
+  <rect x="308" y="287" width="52" height="32" rx="9" fill="#3a1828"/>
+  <!-- sundae cross section hint -->
+  <circle cx="334" cy="303" r="8" fill="#4a2038" opacity="0.7"/>
+  <rect x="370" y="288" width="50" height="34" rx="10" fill="#2a1018"/>
+  <rect x="372" y="290" width="46" height="30" rx="8" fill="#3a1828"/>
+  <circle cx="395" cy="305" r="7" fill="#4a2038" opacity="0.7"/>
+  <rect x="432" y="286" width="48" height="34" rx="10" fill="#2a1018"/>
+  <rect x="434" y="288" width="44" height="30" rx="8" fill="#3a1828"/>
+  <circle cx="456" cy="303" r="7" fill="#4a2038" opacity="0.65"/>
+  <!-- cabbage shreds (green) -->
+  <path d="M318 314 Q332 304 346 314 Q332 326 318 314 Z" fill="#6ab840" opacity="0.85"/>
+  <path d="M408 306 Q424 296 440 306 Q424 318 408 306 Z" fill="#5aa838" opacity="0.85"/>
+  <path d="M276 308 Q290 300 302 308 Q290 318 276 308 Z" fill="#6ab840" opacity="0.75"/>
+  <!-- perilla leaf (kkaennip) -->
+  <ellipse cx="470" cy="300" rx="14" ry="9" fill="#3a7030" transform="rotate(-15 470 300)" opacity="0.8"/>
+  <!-- red pepper slices -->
+  <ellipse cx="290" cy="296" rx="7" ry="3.5" fill="#e02830" transform="rotate(-15 290 296)" opacity="0.75"/>
+  <ellipse cx="486" cy="294" rx="6" ry="3" fill="#d82020" transform="rotate(18 486 294)" opacity="0.7"/>
+  <!-- sesame seeds (perilla) -->
+  <circle cx="390" cy="294" r="3" fill="#c8a040" opacity="0.7"/>
+  <circle cx="420" cy="288" r="3" fill="#c8a040" opacity="0.65"/>
+  <circle cx="362" cy="290" r="2.5" fill="#c8a040" opacity="0.62"/>
+  <!-- steam -->
+  <path d="M362 274 Q355 259 362 244 Q369 229 362 214" stroke="#c080e0" stroke-width="4" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M432 270 Q425 255 432 240 Q439 225 432 210" stroke="#c080e0" stroke-width="4" fill="none" opacity="0.32" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="40" font-weight="700" fill="#6a1848" font-family="sans-serif">순대볶음</text>
+  <text x="64" y="156" font-size="22" fill="#7a3858" font-family="sans-serif">SUNDAE BOKKEUM</text>
+</svg>

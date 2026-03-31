@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-jcg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f8ff"/>
+      <stop offset="100%" stop-color="#d8d8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-jcg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="383" rx="195" ry="50" fill="#404060" opacity="0.12"/>
+  <!-- bowl outer -->
+  <ellipse cx="400" cy="361" rx="190" ry="66" fill="#e4e0d8"/>
+  <ellipse cx="400" cy="331" rx="180" ry="46" fill="#f0ece4"/>
+  <!-- clear broth -->
+  <ellipse cx="400" cy="321" rx="167" ry="37" fill="#f4f8e8" opacity="0.88"/>
+  <!-- white noodle mound -->
+  <path d="M278 312 Q300 298 322 310 Q344 322 366 308 Q388 294 410 306 Q432 318 454 306 Q476 294 498 308 Q516 318 528 314" stroke="#f8f8f0" stroke-width="11" fill="none" stroke-linecap="round" opacity="0.9"/>
+  <path d="M285 326 Q307 312 329 324 Q351 336 373 322 Q395 308 417 320 Q439 332 461 320 Q478 310 500 318" stroke="#f4f4ec" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <path d="M290 338 Q312 326 334 338 Q356 350 378 338 Q400 326 422 337 Q442 347 460 338" stroke="#f8f8f0" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <!-- egg ribbon strips (danberry yellow) -->
+  <rect x="320" y="292" width="52" height="10" rx="5" fill="#f8d050" transform="rotate(-15 320 292)" opacity="0.9"/>
+  <rect x="390" y="286" width="48" height="9" rx="4" fill="#f8c840" transform="rotate(10 390 286)" opacity="0.85"/>
+  <rect x="440" y="292" width="42" height="9" rx="4" fill="#f8d050" transform="rotate(-8 440 292)" opacity="0.8"/>
+  <!-- dark green seaweed threads (gim) -->
+  <path d="M350 302 L356 316" stroke="#1a2a18" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+  <path d="M430" y="298 L425 314" stroke="#1a2a18" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <!-- scallion rings -->
+  <circle cx="340" cy="310" r="5" fill="none" stroke="#4a8030" stroke-width="2.5" opacity="0.8"/>
+  <circle cx="460" cy="306" r="4" fill="none" stroke="#4a8030" stroke-width="2.5" opacity="0.75"/>
+  <!-- sesame seeds -->
+  <ellipse cx="380" cy="296" rx="4" ry="2.5" fill="#c8a828" transform="rotate(-12 380 296)" opacity="0.7"/>
+  <ellipse cx="415" cy="292" rx="4" ry="2.5" fill="#c8a828" transform="rotate(10 415 292)" opacity="0.65"/>
+  <!-- light steam -->
+  <path d="M372 278 Q365 264 372 250 Q379 236 372 222" stroke="#a0a0d0" stroke-width="3.5" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M418 274 Q411 260 418 246 Q425 232 418 218" stroke="#a0a0d0" stroke-width="3.5" fill="none" opacity="0.32" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="40" font-weight="700" fill="#404870" font-family="sans-serif">잔치국수</text>
+  <text x="64" y="156" font-size="22" fill="#4a5070" font-family="sans-serif">JANCHI GUKSU</text>
+</svg>

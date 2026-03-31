@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-grm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffde0"/>
+      <stop offset="100%" stop-color="#fff398"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-grm)"/>
+  <!-- cutting board / plate shadow -->
+  <ellipse cx="420" cy="378" rx="185" ry="44" fill="#c0980020" opacity="0.3"/>
+  <!-- egg roll (gyeran-mari) - main body -->
+  <rect x="250" y="255" width="310" height="110" rx="42" fill="#f4b828"/>
+  <!-- layers / spiral rolls indication -->
+  <path d="M272 303 Q396 260 548 305" stroke="#e89a10" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M262 318 Q396 278 550 322" stroke="#e89a10" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- top face (cut cross-section circles shown) -->
+  <!-- end left circle -->
+  <ellipse cx="262" cy="310" rx="48" ry="55" fill="#f8d050"/>
+  <ellipse cx="262" cy="310" rx="35" ry="42" fill="#f4c030"/>
+  <ellipse cx="262" cy="310" rx="22" ry="29" fill="#eeac20"/>
+  <!-- green onion ring inside -->
+  <ellipse cx="264" cy="308" rx="8" ry="10" fill="#5a9040" opacity="0.7"/>
+  <!-- carrot bit -->
+  <ellipse cx="282" cy="318" rx="6" ry="4" fill="#e87020" opacity="0.65" transform="rotate(-20 282 318)"/>
+  <!-- cute smiley face on the roll body -->
+  <circle cx="418" cy="300" r="8" fill="#1a1a1a" opacity="0.55"/>
+  <circle cx="452" cy="300" r="8" fill="#1a1a1a" opacity="0.55"/>
+  <!-- smile -->
+  <path d="M408 320 Q435 340 462 320" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <!-- sparkle / steam from warm food -->
+  <path d="M348 232 Q341 217 348 202 Q355 187 348 172" stroke="#f8c830" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M430 228 Q423 213 430 198 Q437 183 430 168" stroke="#f8c830" stroke-width="4" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <!-- sesame seeds on top of roll -->
+  <ellipse cx="360" cy="258" rx="5" ry="3" fill="#d0a030" transform="rotate(-15 360 258)" opacity="0.75"/>
+  <ellipse cx="400" cy="254" rx="5" ry="3" fill="#d0a030" transform="rotate(10 400 254)" opacity="0.7"/>
+  <ellipse cx="440" cy="257" rx="4.5" ry="2.5" fill="#d0a030" transform="rotate(-8 440 257)" opacity="0.65"/>
+  <!-- plate/cutting board underneath -->
+  <ellipse cx="420" cy="368" rx="175" ry="22" fill="#e8d890" opacity="0.5"/>
+  <text x="64" y="108" font-size="40" font-weight="700" fill="#9a6208" font-family="sans-serif">계란말이</text>
+  <text x="64" y="156" font-size="22" fill="#7a5010" font-family="sans-serif">GYERAN MARI</text>
+</svg>

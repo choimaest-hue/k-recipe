@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-gbp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef8ea"/>
+      <stop offset="100%" stop-color="#c0e898"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-gbp)"/>
+  <!-- cutting board shadow -->
+  <rect x="206" y="375" width="388" height="22" rx="11" fill="#308020" opacity="0.12"/>
+  <!-- cutting board -->
+  <rect x="205" y="210" width="390" height="178" rx="18" fill="#d8bc88"/>
+  <rect x="215" y="218" width="370" height="160" rx="14" fill="#e8cc98"/>
+  <!-- sliced gimbap pieces - cross sections -->
+  <!-- piece 1 - full cross section -->
+  <circle cx="270" cy="298" r="62" fill="#1a3010"/>
+  <!-- rice layer -->
+  <circle cx="270" cy="298" r="52" fill="#f8f8f0"/>
+  <!-- fillings inside -->
+  <!-- egg strip (yellow) -->
+  <rect x="246" y="272" width="14" height="42" rx="5" fill="#f8d050"/>
+  <!-- spinach (green) -->
+  <rect x="263" y="266" width="11" height="22" rx="4" fill="#3a8030"/>
+  <!-- carrot -->
+  <rect x="277" y="268" width="10" height="18" rx="4" fill="#f06020"/>
+  <!-- crab/ham -->
+  <rect x="250" y="296" width="32" height="12" rx="4" fill="#f08090"/>
+  <!-- danmuji (yellow) -->
+  <rect x="268" y="294" width="12" height="24" rx="4" fill="#e8e020"/>
+  <!-- piece 2 - second slice side by side but shifted -->
+  <circle cx="400" cy="298" r="62" fill="#1a3010"/>
+  <circle cx="400" cy="298" r="52" fill="#f8f8f0"/>
+  <rect x="376" y="272" width="14" height="42" rx="5" fill="#f8d050"/>
+  <rect x="393" y="266" width="11" height="22" rx="4" fill="#3a8030"/>
+  <rect x="407" y="268" width="10" height="18" rx="4" fill="#f06020"/>
+  <rect x="380" y="296" width="32" height="12" rx="4" fill="#f08090"/>
+  <rect x="398" y="294" width="12" height="24" rx="4" fill="#e8e020"/>
+  <!-- piece 3 half peeking -->
+  <circle cx="530" cy="298" r="62" fill="#1a3010"/>
+  <circle cx="530" cy="298" r="52" fill="#f8f8f0"/>
+  <rect x="506" y="272" width="14" height="42" rx="5" fill="#f8d050"/>
+  <rect x="523" y="266" width="11" height="22" rx="4" fill="#3a8030"/>
+  <rect x="537" y="268" width="10" height="18" rx="4" fill="#f06020"/>
+  <rect x="510" y="296" width="32" height="12" rx="4" fill="#f08090"/>
+  <rect x="528" y="294" width="12" height="24" rx="4" fill="#e8e020"/>
+  <!-- sesame on top -->
+  <ellipse cx="275" cy="240" rx="4" ry="2.5" fill="#d8b840" transform="rotate(-12 275 240)" opacity="0.8"/>
+  <ellipse cx="403" cy="238" rx="4" ry="2.5" fill="#d8b840" transform="rotate(8 403 238)" opacity="0.75"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#1e5018" font-family="sans-serif">김밥</text>
+  <text x="64" y="156" font-size="24" fill="#2a6028" font-family="sans-serif">GIMBAP</text>
+</svg>

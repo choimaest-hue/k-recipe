@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-kjj" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff3ea"/>
+      <stop offset="100%" stop-color="#ffd4b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-kjj)"/>
+  <!-- ddukbaegi shadow -->
+  <ellipse cx="400" cy="378" rx="185" ry="52" fill="#2e1a10" opacity="0.25"/>
+  <!-- pot body -->
+  <ellipse cx="400" cy="356" rx="182" ry="68" fill="#4a2c1a"/>
+  <!-- pot rim -->
+  <ellipse cx="400" cy="316" rx="176" ry="38" fill="#6a3c22"/>
+  <!-- hot stew -->
+  <ellipse cx="400" cy="308" rx="162" ry="30" fill="#c83030"/>
+  <!-- kimchi triangle 1 -->
+  <path d="M340 295 L365 322 L315 322 Z" fill="#e84848" opacity="0.9"/>
+  <!-- kimchi triangle 2 -->
+  <path d="M440 292 L468 318 L412 318 Z" fill="#c82828" opacity="0.9"/>
+  <!-- pork piece -->
+  <rect x="375" y="294" width="34" height="22" rx="6" fill="#e8c080"/>
+  <!-- tofu piece -->
+  <rect x="355" y="302" width="22" height="16" rx="4" fill="#fff8e8" opacity="0.9"/>
+  <!-- bubble 1 -->
+  <circle cx="360" cy="292" r="5" fill="#f87070" opacity="0.85"/>
+  <!-- bubble 2 -->
+  <circle cx="430" cy="288" r="4" fill="#f05050" opacity="0.8"/>
+  <!-- bubble 3 -->
+  <circle cx="395" cy="285" r="3" fill="#f87070" opacity="0.75"/>
+  <!-- steam 1 -->
+  <path d="M355 270 Q348 255 355 242 Q362 229 355 216" stroke="#ff9070" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <!-- steam 2 -->
+  <path d="M400 265 Q393 250 400 237 Q407 224 400 211" stroke="#ff9070" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <!-- steam 3 -->
+  <path d="M445 270 Q438 255 445 242 Q452 229 445 216" stroke="#ff9070" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.45"/>
+  <!-- pot handle left -->
+  <ellipse cx="222" cy="330" rx="28" ry="12" fill="#5a3422" transform="rotate(-15 222 330)"/>
+  <!-- pot handle right -->
+  <ellipse cx="578" cy="330" rx="28" ry="12" fill="#5a3422" transform="rotate(15 578 330)"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#9a2a20" font-family="sans-serif">김치찌개</text>
+  <text x="64" y="156" font-size="24" fill="#7a5040" font-family="sans-serif">KIMCHI JJIGAE</text>
+</svg>

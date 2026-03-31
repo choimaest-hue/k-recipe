@@ -128,7 +128,7 @@ function getMatchedIngredients(recipe) {
 
 function createFeaturedMarkup(recipe) {
   return `
-    <article class="featured-card">
+    <article class="featured-card card-clickable" data-recipe-id="${escapeHtml(recipe.id)}">
       <img class="featured-image" src="${escapeHtml(getRecipeImage(recipe))}" alt="${escapeHtml(recipe.title)}" loading="lazy" />
       <div>
         <span class="menu-index">${escapeHtml(getCategory(recipe))}</span>
@@ -148,7 +148,7 @@ function createFeaturedMarkup(recipe) {
 
 function createPreviewMarkup(recipe) {
   return `
-    <article class="preview-card">
+    <article class="preview-card card-clickable" data-recipe-id="${escapeHtml(recipe.id)}">
       <img class="preview-thumb" src="${escapeHtml(getRecipeImage(recipe))}" alt="${escapeHtml(recipe.title)}" loading="lazy" />
       <div class="preview-content">
         <span class="menu-index">${escapeHtml(getCategory(recipe))}</span>
@@ -168,7 +168,7 @@ function createRecipeRowMarkup(recipe, index) {
   const matchedIngredients = getMatchedIngredients(recipe);
 
   return `
-    <article class="recipe-row">
+    <article class="recipe-row card-clickable" data-recipe-id="${escapeHtml(recipe.id)}">
       <img class="recipe-thumb" src="${escapeHtml(getRecipeImage(recipe))}" alt="${escapeHtml(recipe.title)}" loading="lazy" />
       <div class="recipe-content">
         <div class="recipe-header">
@@ -230,7 +230,7 @@ function createRecommendCardMarkup(recipe, score, matchedIngredients) {
   }
 
   return `
-    <article class="recommend-card">
+    <article class="recommend-card card-clickable" data-recipe-id="${escapeHtml(recipe.id)}">
       <div class="recommend-top">
         <div>
           <span class="menu-index">${escapeHtml(getCategory(recipe))}</span>
@@ -556,3 +556,78 @@ async function loadRecipes() {
 }
 
 loadRecipes();
+
+/* ── Modal ─────────────────────────────────── */
+function renderModalContent(recipe) {
+  const spicyCount = getSpicyLevelCount(recipe.spicyLevel);
+  const spicyStr = spicyCount ? "🌶️".repeat(spicyCount) : "-";
+
+  return `
+    <div class="modal-image-wrap">
+      <img src="${escapeHtml(getRecipeImage(recipe))}" alt="${escapeHtml(recipe.title)}" />
+    </div>
+    <div class="modal-body-inner">
+      <div class="modal-meta-row">
+        <span class="badge">${escapeHtml(getCategory(recipe))}</span>
+        <span class="badge">${escapeHtml(recipe.servings || "-")}</span>
+        <span class="badge">${escapeHtml(recipe.cookTime || "-")}</span>
+        <span class="badge spicy-badge" aria-label="맵기 ${escapeHtml(recipe.spicyLevel || "-")}">${spicyStr}</span>
+      </div>
+      <h2 class="modal-title" id="modal-title">${escapeHtml(recipe.title)}</h2>
+      <p class="modal-subtitle">${escapeHtml(recipe.subtitle || "")}</p>
+      <p class="modal-desc">${escapeHtml(recipe.description || "")}</p>
+      <div class="modal-grid">
+        <div class="modal-panel">
+          <h3>재료</h3>
+          <ul>
+            ${(recipe.ingredients || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="modal-panel">
+          <h3>만드는 법</h3>
+          <ol>
+            ${(recipe.steps || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ol>
+        </div>
+      </div>
+      ${recipe.tip ? `<p class="modal-tip">💡 ${escapeHtml(recipe.tip)}</p>` : ""}
+    </div>
+  `;
+}
+
+function openRecipeModal(recipeId) {
+  const recipe = state.recipes.find((r) => r.id === recipeId);
+  if (!recipe) return;
+
+  const modal = document.getElementById("recipe-modal");
+  const body = document.getElementById("modal-body");
+  if (!modal || !body) return;
+
+  body.innerHTML = renderModalContent(recipe);
+  modal.hidden = false;
+  body.scrollTop = 0;
+  document.body.classList.add("modal-open");
+  document.getElementById("modal-close")?.focus();
+}
+
+function closeRecipeModal() {
+  const modal = document.getElementById("recipe-modal");
+  if (modal) modal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("click", (e) => {
+  const card = e.target.closest("[data-recipe-id]");
+  if (card) {
+    e.preventDefault();
+    openRecipeModal(card.dataset.recipeId);
+    return;
+  }
+  if (e.target.id === "modal-backdrop" || e.target.id === "modal-close") {
+    closeRecipeModal();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeRecipeModal();
+});

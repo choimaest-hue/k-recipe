@@ -35,7 +35,7 @@
     "servings": "2인분",
     "cookTime": "약 25분",
     "spicyLevel": "중",
-    "image": "/images/sundubu-jjigae.svg",
+    "image": "/images/kimchi-jjigae.svg",
     "ingredients": [
       "김치 2컵",
       "돼지고기 200g",
@@ -113,7 +113,7 @@
     "servings": "2~3인분",
     "cookTime": "약 25분",
     "spicyLevel": "중",
-    "image": "/images/sundubu-jjigae.svg",
+    "image": "/images/budae-jjigae.svg",
     "ingredients": [
       "김치 1컵",
       "햄 150g",
@@ -139,7 +139,7 @@
     "servings": "3인분",
     "cookTime": "약 50분",
     "spicyLevel": "상",
-    "image": "/images/sundubu-jjigae.svg",
+    "image": "/images/yukgaejang.svg",
     "ingredients": [
       "소고기 양지 300g",
       "대파 2대",
@@ -165,7 +165,7 @@
     "servings": "2~3인분",
     "cookTime": "약 30분",
     "spicyLevel": "하",
-    "image": "/images/doenjang-jjigae.svg",
+    "image": "/images/soegogi-muguk.svg",
     "ingredients": [
       "소고기 국거리 200g",
       "무 1/4개",
@@ -191,7 +191,7 @@
     "servings": "2~3인분",
     "cookTime": "약 25분",
     "spicyLevel": "하",
-    "image": "/images/doenjang-jjigae.svg",
+    "image": "/images/miyeok-guk.svg",
     "ingredients": [
       "불린 미역 2컵",
       "소고기 120g",
@@ -217,7 +217,7 @@
     "servings": "2인분",
     "cookTime": "약 15분",
     "spicyLevel": "하",
-    "image": "/images/doenjang-jjigae.svg",
+    "image": "/images/kongnamul-guk.svg",
     "ingredients": [
       "콩나물 200g",
       "대파 1/2대",
@@ -243,7 +243,7 @@
     "servings": "3~4인분",
     "cookTime": "약 60분",
     "spicyLevel": "중",
-    "image": "/images/kimchi-jjim.svg",
+    "image": "/images/gamjatang.svg",
     "ingredients": [
       "돼지등뼈 1kg",
       "감자 2개",
@@ -269,7 +269,7 @@
     "servings": "2인분",
     "cookTime": "약 55분",
     "spicyLevel": "하",
-    "image": "/images/default-recipe.svg",
+    "image": "/images/samgyetang.svg",
     "ingredients": [
       "영계 2마리",
       "찹쌀 1/2컵",
@@ -295,7 +295,7 @@
     "servings": "2~3인분",
     "cookTime": "약 60분",
     "spicyLevel": "하",
-    "image": "/images/galbijjim.svg",
+    "image": "/images/galbitang.svg",
     "ingredients": [
       "소갈비 700g",
       "무 1/4개",
@@ -373,7 +373,7 @@
     "servings": "2~3인분",
     "cookTime": "약 30분",
     "spicyLevel": "중",
-    "image": "/images/jeyuk-bokkeum.svg",
+    "image": "/images/dakgalbi.svg",
     "ingredients": [
       "닭다리살 500g",
       "양배추 2컵",
@@ -399,7 +399,7 @@
     "servings": "2인분",
     "cookTime": "약 20분",
     "spicyLevel": "상",
-    "image": "/images/jeyuk-bokkeum.svg",
+    "image": "/images/ojingeo-bokkeum.svg",
     "ingredients": [
       "오징어 2마리",
       "양파 1개",
@@ -425,7 +425,7 @@
     "servings": "2~3인분",
     "cookTime": "약 20분",
     "spicyLevel": "중",
-    "image": "/images/jeyuk-bokkeum.svg",
+    "image": "/images/sundae-bokkeum.svg",
     "ingredients": [
       "순대 300g",
       "양배추 2컵",
@@ -529,7 +529,7 @@
     "servings": "2인분",
     "cookTime": "약 10분",
     "spicyLevel": "하",
-    "image": "/images/default-recipe.svg",
+    "image": "/images/gyeran-mari.svg",
     "ingredients": [
       "달걀 4개",
       "대파 1/3대",
@@ -554,7 +554,7 @@
     "servings": "2~3인분",
     "cookTime": "약 20분",
     "spicyLevel": "하",
-    "image": "/images/default-recipe.svg",
+    "image": "/images/haemul-pajeon.svg",
     "ingredients": [
       "부침가루 1컵",
       "쪽파 한 줌",
@@ -606,7 +606,7 @@
     "servings": "2줄",
     "cookTime": "약 25분",
     "spicyLevel": "하",
-    "image": "/images/bibimbap.svg",
+    "image": "/images/gimbap.svg",
     "ingredients": [
       "김밥용 김 2장",
       "밥 2공기",
@@ -658,7 +658,7 @@
     "servings": "1~2인분",
     "cookTime": "약 15분",
     "spicyLevel": "중",
-    "image": "/images/bibimbap.svg",
+    "image": "/images/kimchi-bokkeumbap.svg",
     "ingredients": [
       "밥 2공기",
       "김치 1컵",
@@ -684,7 +684,7 @@
     "servings": "2~3인분",
     "cookTime": "약 25분",
     "spicyLevel": "하",
-    "image": "/images/bibimbap.svg",
+    "image": "/images/curry-rice.svg",
     "ingredients": [
       "카레가루 1봉",
       "감자 2개",
@@ -710,7 +710,7 @@
     "servings": "2인분",
     "cookTime": "약 15분",
     "spicyLevel": "중",
-    "image": "/images/tteokbokki.svg",
+    "image": "/images/bibim-guksu.svg",
     "ingredients": [
       "소면 200g",
       "오이 1/2개",
@@ -736,7 +736,7 @@
     "servings": "2인분",
     "cookTime": "약 20분",
     "spicyLevel": "하",
-    "image": "/images/default-recipe.svg",
+    "image": "/images/janchi-guksu.svg",
     "ingredients": [
       "소면 200g",
       "멸치육수 700ml",
@@ -762,7 +762,7 @@
     "servings": "2인분",
     "cookTime": "약 20분",
     "spicyLevel": "하",
-    "image": "/images/default-recipe.svg",
+    "image": "/images/tteokguk.svg",
     "ingredients": [
       "떡국떡 300g",
       "소고기 100g",

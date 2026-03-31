@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-ttg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fff4"/>
+      <stop offset="100%" stop-color="#c0f0c0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-ttg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="382" rx="194" ry="50" fill="#306050" opacity="0.12"/>
+  <!-- bowl -->
+  <ellipse cx="400" cy="360" rx="190" ry="66" fill="#e8e4dc"/>
+  <ellipse cx="400" cy="330" rx="180" ry="46" fill="#f0ece4"/>
+  <!-- clear light broth -->
+  <ellipse cx="400" cy="320" rx="167" ry="37" fill="#f4f8ec" opacity="0.88"/>
+  <!-- oval white rice cake slices (tteok) -->
+  <ellipse cx="318" cy="310" rx="36" ry="22" fill="#f4f4e8" stroke="#d8d8c8" stroke-width="2"/>
+  <ellipse cx="316" cy="306" rx="30" ry="17" fill="#f8f8f0"/>
+  <ellipse cx="378" cy="304" rx="34" ry="21" fill="#f4f4e8" stroke="#d8d8c8" stroke-width="2"/>
+  <ellipse cx="376" cy="300" rx="28" ry="16" fill="#f8f8f0"/>
+  <ellipse cx="438" cy="312" rx="33" ry="20" fill="#f4f4e8" stroke="#d8d8c8" stroke-width="2"/>
+  <ellipse cx="436" cy="308" rx="27" ry="15" fill="#f8f8f0"/>
+  <ellipse cx="497" cy="306" rx="30" ry="19" fill="#f4f4e8" stroke="#d8d8c8" stroke-width="1.5" opacity="0.9"/>
+  <ellipse cx="495" cy="302" rx="24" ry="14" fill="#f8f8f0" opacity="0.9"/>
+  <ellipse cx="345" cy="326" rx="28" ry="17" fill="#f4f4e8" stroke="#d8d8c8" stroke-width="1.5" opacity="0.85"/>
+  <ellipse cx="415" cy="328" rx="26" ry="16" fill="#f4f4e8" stroke="#d8d8c8" stroke-width="1.5" opacity="0.85"/>
+  <!-- egg ribbons (yellow strips) -->
+  <rect x="330" y="286" width="44" height="9" rx="4" fill="#f8d050" transform="rotate(-12 330 286)" opacity="0.85"/>
+  <rect x="400" y="282" width="40" height="8" rx="4" fill="#f8c840" transform="rotate(8 400 282)" opacity="0.8"/>
+  <!-- seaweed strips (dark green) -->
+  <rect x="362" y="290" width="8" height="24" rx="3" fill="#1a3020" transform="rotate(-15 362 290)" opacity="0.75"/>
+  <rect x="448" y="288" width="7" height="22" rx="3" fill="#1a3020" transform="rotate(12 448 288)" opacity="0.7"/>
+  <!-- scallion rings -->
+  <circle cx="295" cy="308" r="5" fill="none" stroke="#4a8030" stroke-width="2.5" opacity="0.8"/>
+  <circle cx="476" cy="304" r="4" fill="none" stroke="#4a8030" stroke-width="2.5" opacity="0.75"/>
+  <!-- light pepper -->
+  <circle cx="310" cy="296" r="3" fill="#d04030" opacity="0.5"/>
+  <!-- sesame -->
+  <ellipse cx="455" cy="296" rx="4" ry="2.5" fill="#c8a828" transform="rotate(-10 455 296)" opacity="0.65"/>
+  <!-- steam -->
+  <path d="M374 278 Q367 264 374 250 Q381 236 374 222" stroke="#80d090" stroke-width="3.5" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M420 274 Q413 260 420 246 Q427 232 420 218" stroke="#80d090" stroke-width="3.5" fill="none" opacity="0.32" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#285848" font-family="sans-serif">떡국</text>
+  <text x="64" y="156" font-size="24" fill="#386858" font-family="sans-serif">TTEOKGUK</text>
+</svg>

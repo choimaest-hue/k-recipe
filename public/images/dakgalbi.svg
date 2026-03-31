@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-dkg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0e8"/>
+      <stop offset="100%" stop-color="#ffc8a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-dkg)"/>
+  <!-- iron pan shadow -->
+  <ellipse cx="400" cy="384" rx="220" ry="52" fill="#1a1a1a" opacity="0.3"/>
+  <!-- iron pan body -->
+  <ellipse cx="400" cy="362" rx="215" ry="68" fill="#2a2a2a"/>
+  <!-- pan rim -->
+  <ellipse cx="400" cy="322" rx="204" ry="42" fill="#383838"/>
+  <!-- spicy red sauce base -->
+  <ellipse cx="400" cy="312" rx="190" ry="34" fill="#d84020"/>
+  <!-- chicken pieces -->
+  <ellipse cx="348" cy="300" rx="28" ry="16" fill="#f0c880" transform="rotate(-12 348 300)"/>
+  <ellipse cx="400" cy="295" rx="26" ry="15" fill="#ead878" transform="rotate(5 400 295)"/>
+  <ellipse cx="455" cy="302" rx="25" ry="14" fill="#f0c880" transform="rotate(-8 455 302)"/>
+  <!-- cabbage chunks (yangbaechu) - light green -->
+  <path d="M330 318 Q338 306 346 318 Q354 330 330 318 Z" fill="#b8e098" opacity="0.9"/>
+  <path d="M424 308 Q436 296 448 308 Q436 322 424 308 Z" fill="#a8d888" opacity="0.85"/>
+  <!-- sweet potato (goguma) -->
+  <ellipse cx="380" cy="316" rx="22" ry="11" fill="#f0a030" transform="rotate(15 380 316)"/>
+  <ellipse cx="430" cy="318" rx="18" ry="10" fill="#e89828" transform="rotate(-12 430 318)"/>
+  <!-- rice cake (tteok) optional -->
+  <rect x="360" y="304" width="20" height="14" rx="5" fill="#fff4e8" opacity="0.85"/>
+  <!-- scallion stalk -->
+  <path d="M292 310 L308 310" stroke="#3a8030" stroke-width="7" stroke-linecap="round"/>
+  <path d="M302 300 L298 316" stroke="#3a8030" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  <!-- sesame seeds -->
+  <ellipse cx="366" cy="296" rx="4" ry="2.5" fill="#d8c050" transform="rotate(-20 366 296)" opacity="0.8"/>
+  <ellipse cx="415" cy="292" rx="4" ry="2.5" fill="#d8c050" transform="rotate(15 415 292)" opacity="0.75"/>
+  <ellipse cx="468" cy="294" rx="3.5" ry="2" fill="#d8c050" transform="rotate(-10 468 294)" opacity="0.7"/>
+  <!-- pan handle -->
+  <rect x="596" y="344" width="85" height="22" rx="11" fill="#2a2a2a"/>
+  <rect x="596" y="346" width="85" height="18" rx="9" fill="#383838"/>
+  <!-- steam/smoke -->
+  <path d="M360 280 Q353 265 360 250 Q367 235 360 218" stroke="#f87040" stroke-width="4.5" fill="none" opacity="0.45" stroke-linecap="round"/>
+  <path d="M405 275 Q398 260 405 245 Q412 230 405 215" stroke="#f87040" stroke-width="4.5" fill="none" opacity="0.42" stroke-linecap="round"/>
+  <path d="M448 280 Q441 265 448 250 Q455 235 448 218" stroke="#f87040" stroke-width="4" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#8a2808" font-family="sans-serif">닭갈비</text>
+  <text x="64" y="156" font-size="24" fill="#7a4020" font-family="sans-serif">DAK GALBI</text>
+</svg>

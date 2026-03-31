@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-ykg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0e4"/>
+      <stop offset="100%" stop-color="#ffb890"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-ykg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="385" rx="200" ry="52" fill="#500000" opacity="0.2"/>
+  <!-- bowl outer -->
+  <ellipse cx="400" cy="362" rx="195" ry="68" fill="#e8e0d8"/>
+  <!-- bowl rim -->
+  <ellipse cx="400" cy="332" rx="185" ry="46" fill="#f0ece4"/>
+  <!-- deep red broth -->
+  <ellipse cx="400" cy="322" rx="172" ry="36" fill="#a81818"/>
+  <!-- beef strands -->
+  <path d="M330 308 Q350 316 370 308 Q390 300 410 308 Q430 316 450 308" stroke="#7a3820" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M345 320 Q365 312 385 320 Q405 328 425 320 Q445 312 460 320" stroke="#6a2a18" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- scallion shreds -->
+  <path d="M340 298 Q355 310 340 322" stroke="#4a8830" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M380 295 Q395 307 380 319" stroke="#5a9a38" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M420 297 Q435 309 420 321" stroke="#4a8830" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M458 296 Q473 308 458 320" stroke="#5a9a38" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- gosari fern -->
+  <path d="M360 316 Q368 308 375 316" stroke="#6a5030" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <!-- pepper flakes -->
+  <circle cx="350" cy="304" r="3" fill="#c02020" opacity="0.7"/>
+  <circle cx="430" cy="310" r="3" fill="#c02020" opacity="0.7"/>
+  <circle cx="400" cy="300" r="2" fill="#d03030" opacity="0.65"/>
+  <!-- steam -->
+  <path d="M360 280 Q353 265 360 250 Q367 235 360 220" stroke="#d06040" stroke-width="4" fill="none" opacity="0.45" stroke-linecap="round"/>
+  <path d="M405 275 Q398 260 405 245 Q412 230 405 215" stroke="#d06040" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M445 278 Q438 263 445 248 Q452 233 445 218" stroke="#d06040" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#8a2010" font-family="sans-serif">육개장</text>
+  <text x="64" y="156" font-size="24" fill="#7a3828" font-family="sans-serif">YUKGAEJANG</text>
+</svg>

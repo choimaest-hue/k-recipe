@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-sgt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffff4"/>
+      <stop offset="100%" stop-color="#fff4c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-sgt)"/>
+  <!-- pot shadow -->
+  <ellipse cx="400" cy="382" rx="205" ry="55" fill="#606040" opacity="0.12"/>
+  <!-- big white pot body -->
+  <ellipse cx="400" cy="360" rx="200" ry="72" fill="#9a9898"/>
+  <!-- ceramic/white pot -->
+  <ellipse cx="400" cy="328" rx="190" ry="48" fill="#e8e4dc"/>
+  <!-- milky white broth -->
+  <ellipse cx="400" cy="316" rx="178" ry="38" fill="#f8f4e8"/>
+  <!-- chicken body silhouette -->
+  <ellipse cx="400" cy="308" rx="55" ry="35" fill="#f0e8d8"/>
+  <!-- chicken wings hint -->
+  <ellipse cx="355" cy="314" rx="22" ry="12" fill="#ebe0c8" transform="rotate(-20 355 314)"/>
+  <ellipse cx="445" cy="314" rx="22" ry="12" fill="#ebe0c8" transform="rotate(20 445 314)"/>
+  <!-- chicken leg -->
+  <ellipse cx="388" cy="330" rx="12" ry="8" fill="#e8d8b8" transform="rotate(10 388 330)"/>
+  <ellipse cx="412" cy="330" rx="12" ry="8" fill="#e8d8b8" transform="rotate(-10 412 330)"/>
+  <!-- ginseng root (insamroot) -->
+  <path d="M340 290 L338 310 L332 320 M338 310 L344 318 M338 310 L340 316" stroke="#c8a860" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- jujube (daechu) -->
+  <ellipse cx="456" cy="307" rx="10" ry="7" fill="#c83830" transform="rotate(-15 456 307)"/>
+  <ellipse cx="472" cy="298" rx="8" ry="6" fill="#b83030" transform="rotate(10 472 298)"/>
+  <!-- glutinous rice grains floating -->
+  <circle cx="370" cy="298" r="4" fill="#f8f0d8" stroke="#d8c898" stroke-width="1" opacity="0.9"/>
+  <circle cx="425" cy="296" r="4" fill="#f8f0d8" stroke="#d8c898" stroke-width="1" opacity="0.85"/>
+  <circle cx="398" cy="288" r="3.5" fill="#f8f0d8" stroke="#d8c898" stroke-width="1" opacity="0.8"/>
+  <!-- steam -->
+  <path d="M368 278 Q361 263 368 248 Q375 233 368 218" stroke="#d0c880" stroke-width="4" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M405 272 Q398 257 405 242 Q412 227 405 212" stroke="#d0c880" stroke-width="4" fill="none" opacity="0.32" stroke-linecap="round"/>
+  <path d="M440 277 Q433 262 440 247 Q447 232 440 217" stroke="#d0c880" stroke-width="4" fill="none" opacity="0.3" stroke-linecap="round"/>
+  <!-- pot handles -->
+  <ellipse cx="204" cy="335" rx="28" ry="12" fill="#9a9898" transform="rotate(-15 204 335)"/>
+  <ellipse cx="596" cy="335" rx="28" ry="12" fill="#9a9898" transform="rotate(15 596 335)"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#6a5828" font-family="sans-serif">삼계탕</text>
+  <text x="64" y="156" font-size="24" fill="#6a5030" font-family="sans-serif">SAMGYETANG</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-kng" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fff4"/>
+      <stop offset="100%" stop-color="#c8f0a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-kng)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="382" rx="190" ry="50" fill="#307050" opacity="0.12"/>
+  <!-- bowl -->
+  <ellipse cx="400" cy="360" rx="186" ry="66" fill="#e8e8e0"/>
+  <ellipse cx="400" cy="330" rx="176" ry="44" fill="#f4f4ec"/>
+  <!-- clear light broth -->
+  <ellipse cx="400" cy="320" rx="163" ry="35" fill="#f8ffe8" opacity="0.85"/>
+  <!-- bean sprouts - body + tail patterns -->
+  <!-- sprout 1 -->
+  <ellipse cx="330" cy="308" rx="10" ry="7" fill="#f0f0e0"/>
+  <line x1="330" y1="315" x2="326" y2="334" stroke="#d0d0b8" stroke-width="3" stroke-linecap="round"/>
+  <!-- sprout 2 -->
+  <ellipse cx="360" cy="302" rx="9" ry="6" fill="#eeeeda"/>
+  <line x1="360" y1="308" x2="357" y2="326" stroke="#c8c8a8" stroke-width="3" stroke-linecap="round"/>
+  <!-- sprout 3 -->
+  <ellipse cx="390" cy="298" rx="10" ry="7" fill="#f0f0e0"/>
+  <line x1="390" y1="305" x2="387" y2="324" stroke="#d0d0b8" stroke-width="3" stroke-linecap="round"/>
+  <!-- sprout 4 -->
+  <ellipse cx="420" cy="304" rx="9" ry="6" fill="#eeeeda"/>
+  <line x1="420" y1="310" x2="417" y2="329" stroke="#c8c8a8" stroke-width="3" stroke-linecap="round"/>
+  <!-- sprout 5 -->
+  <ellipse cx="450" cy="300" rx="10" ry="7" fill="#f0f0e0"/>
+  <line x1="450" y1="307" x2="447" y2="326" stroke="#d0d0b8" stroke-width="3" stroke-linecap="round"/>
+  <!-- sprout 6 -->
+  <ellipse cx="348" cy="320" rx="8" ry="5.5" fill="#f0f0e0" opacity="0.8"/>
+  <line x1="348" y1="326" x2="345" y2="342" stroke="#c8c8a8" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  <!-- sprout 7 -->
+  <ellipse cx="468" cy="316" rx="8" ry="5.5" fill="#eeeeda" opacity="0.8"/>
+  <line x1="468" y1="322" x2="465" y2="338" stroke="#c8c8a8" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+  <!-- scallion rings -->
+  <circle cx="376" cy="316" r="5" fill="none" stroke="#5a8840" stroke-width="2.5" opacity="0.8"/>
+  <circle cx="408" cy="312" r="4" fill="none" stroke="#5a8840" stroke-width="2.5" opacity="0.75"/>
+  <!-- red pepper bits -->
+  <circle cx="340" cy="298" r="3" fill="#d82020" opacity="0.6"/>
+  <circle cx="436" cy="296" r="3" fill="#d82020" opacity="0.55"/>
+  <!-- steam -->
+  <path d="M375 278 Q368 264 375 250 Q382 236 375 222" stroke="#90d870" stroke-width="3.5" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <path d="M418 274 Q411 260 418 246 Q425 232 418 218" stroke="#90d870" stroke-width="3.5" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="40" font-weight="700" fill="#285a38" font-family="sans-serif">콩나물국</text>
+  <text x="64" y="156" font-size="22" fill="#3a6848" font-family="sans-serif">KONGNAMUL GUK</text>
+</svg>

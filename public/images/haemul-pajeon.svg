@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-hmj" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffce0"/>
+      <stop offset="100%" stop-color="#ffe498"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-hmj)"/>
+  <!-- pancake plate shadow -->
+  <ellipse cx="405" cy="380" rx="195" ry="48" fill="#906010" opacity="0.18"/>
+  <!-- plate -->
+  <ellipse cx="405" cy="358" rx="190" ry="55" fill="#e8e4dc"/>
+  <!-- golden pancake body -->
+  <ellipse cx="405" cy="330" rx="178" ry="80" fill="#d49010"/>
+  <!-- crispy edges -->
+  <ellipse cx="405" cy="326" rx="174" ry="76" fill="#e09a18"/>
+  <!-- pancake surface -->
+  <ellipse cx="405" cy="318" rx="162" ry="66" fill="#f8c840"/>
+  <!-- scallion lines across pancake -->
+  <line x1="258" y1="298" x2="548" y2="304" stroke="#3a7a28" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <line x1="262" y1="316" x2="545" y2="322" stroke="#408830" stroke-width="7" stroke-linecap="round" opacity="0.75"/>
+  <line x1="268" y1="334" x2="540" y2="340" stroke="#3a7a28" stroke-width="6.5" stroke-linecap="round" opacity="0.7"/>
+  <!-- scallion onion root bumps -->
+  <circle cx="262" cy="298" r="6" fill="#5a9840" opacity="0.7"/>
+  <circle cx="265" cy="316" r="5" fill="#5a9840" opacity="0.65"/>
+  <circle cx="270" cy="334" r="5" fill="#5a9840" opacity="0.6"/>
+  <!-- squid piece peeking -->
+  <ellipse cx="370" cy="304" rx="22" ry="10" fill="#f0e0d0" opacity="0.8"/>
+  <circle cx="358" cy="300" r="4" fill="#d0c0b0" opacity="0.7"/>
+  <circle cx="382" cy="300" r="4" fill="#d0c0b0" opacity="0.7"/>
+  <!-- shrimp hint -->
+  <path d="M448 296 Q460 286 472 292 Q478 304 468 308 Q456 312 450 304 Z" fill="#f0a090" opacity="0.75"/>
+  <!-- egg batter spots -->
+  <circle cx="320" cy="286" r="6" fill="#ffe898" opacity="0.6"/>
+  <circle cx="490" cy="288" r="5" fill="#ffe898" opacity="0.55"/>
+  <!-- dipping sauce bowl -->
+  <ellipse cx="580" cy="300" rx="38" ry="14" fill="#4a3010" opacity="0.7"/>
+  <ellipse cx="580" cy="294" rx="35" ry="11" fill="#6a2010" opacity="0.7"/>
+  <ellipse cx="580" cy="290" rx="30" ry="7" fill="#2a1808" opacity="0.5"/>
+  <text x="64" y="108" font-size="38" font-weight="700" fill="#906010" font-family="sans-serif">해물파전</text>
+  <text x="64" y="156" font-size="21" fill="#7a4818" font-family="sans-serif">HAEMUL PAJEON</text>
+</svg>

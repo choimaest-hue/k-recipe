@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-kkb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff2e4"/>
+      <stop offset="100%" stop-color="#ffc898"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-kkb)"/>
+  <!-- pan shadow -->
+  <ellipse cx="400" cy="382" rx="208" ry="52" fill="#2a0808" opacity="0.2"/>
+  <!-- pan body -->
+  <ellipse cx="400" cy="358" rx="204" ry="68" fill="#2a2020"/>
+  <!-- pan inner surface with fried rice -->
+  <ellipse cx="400" cy="318" rx="192" ry="52" fill="#d85830"/>
+  <!-- rice texture - speckled orange-red -->
+  <ellipse cx="380" cy="308" rx="165" ry="42" fill="#e06030"/>
+  <!-- rice grain texture dots -->
+  <circle cx="320" cy="304" r="4" fill="#f0781a" opacity="0.7"/>
+  <circle cx="340" cy="296" r="3.5" fill="#f07018" opacity="0.65"/>
+  <circle cx="360" cy="308" r="4" fill="#e86818" opacity="0.7"/>
+  <circle cx="388" cy="298" r="4" fill="#f07820" opacity="0.68"/>
+  <circle cx="412" cy="306" r="3.5" fill="#e86018" opacity="0.65"/>
+  <circle cx="435" cy="298" r="4" fill="#f07820" opacity="0.7"/>
+  <circle cx="460" cy="308" r="4" fill="#e86818" opacity="0.68"/>
+  <!-- kimchi pieces (red-orange triangles / irregular chunks) -->
+  <path d="M295 296 L320 316 L274 316 Z" fill="#c82020" opacity="0.85"/>
+  <path d="M476 294 L500 318 L452 318 Z" fill="#c02020" opacity="0.8"/>
+  <path d="M344 284 L366 304 L322 304 Z" fill="#d02828" opacity="0.75"/>
+  <!-- scallion pieces -->
+  <path d="M380 282 L386 298" stroke="#3a8028" stroke-width="5" stroke-linecap="round"/>
+  <path d="M420 286 L416 300" stroke="#3a8028" stroke-width="4" stroke-linecap="round"/>
+  <path d="M330 288 L334 302" stroke="#3a8028" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <!-- fried egg on top center -->
+  <ellipse cx="400" cy="292" rx="40" ry="28" fill="#fffce0"/>
+  <circle cx="400" cy="290" r="14" fill="#f8b820"/>
+  <!-- egg white edge -->
+  <ellipse cx="400" cy="293" rx="36" ry="24" fill="none" stroke="#f8f0c0" stroke-width="2" opacity="0.5"/>
+  <!-- sesame seeds on rice -->
+  <ellipse cx="356" cy="316" rx="4" ry="2.5" fill="#d8b030" transform="rotate(-15 356 316)" opacity="0.7"/>
+  <ellipse cx="450" cy="314" rx="4" ry="2.5" fill="#d8b030" transform="rotate(12 450 314)" opacity="0.65"/>
+  <!-- steam from egg -->
+  <path d="M385 262 Q378 248 385 234 Q392 220 385 206" stroke="#f8a830" stroke-width="3.5" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M416 258 Q409 244 416 230 Q423 216 416 202" stroke="#f8a830" stroke-width="3.5" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="36" font-weight="700" fill="#902008" font-family="sans-serif">김치볶음밥</text>
+  <text x="64" y="156" font-size="20" fill="#7a3018" font-family="sans-serif">KIMCHI FRIED RICE</text>
+</svg>

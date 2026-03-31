@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-ojb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0ec"/>
+      <stop offset="100%" stop-color="#ffb8a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-ojb)"/>
+  <!-- plate shadow -->
+  <ellipse cx="400" cy="385" rx="210" ry="50" fill="#601010" opacity="0.18"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="362" rx="206" ry="64" fill="#e8e4e0"/>
+  <ellipse cx="400" cy="340" rx="195" ry="50" fill="#f4f0ec"/>
+  <!-- spicy red sauce -->
+  <ellipse cx="400" cy="326" rx="182" ry="38" fill="#c82818"/>
+  <!-- squid rings (white circles with outline) -->
+  <circle cx="342" cy="314" r="28" fill="white" stroke="#e8d0c0" stroke-width="3"/>
+  <circle cx="342" cy="314" r="16" fill="#c82818"/>
+  <circle cx="400" cy="308" r="24" fill="white" stroke="#e8d0c0" stroke-width="3"/>
+  <circle cx="400" cy="308" r="13" fill="#c82818"/>
+  <circle cx="455" cy="316" r="26" fill="white" stroke="#e8d0c0" stroke-width="3"/>
+  <circle cx="455" cy="316" r="15" fill="#c82818"/>
+  <!-- squid body/tentacles hint -->
+  <path d="M332 340 Q342 330 352 340" stroke="#f0e0d0" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <path d="M390 330 Q400 322 410 330" stroke="#f0e0d0" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.65"/>
+  <!-- onion pieces (yangpa) -->
+  <path d="M310 310 Q316 300 322 310 Q328 320 310 310 Z" fill="#f0f0e0" stroke="#d8d0c0" stroke-width="1.5" opacity="0.8"/>
+  <path d="M466 304 Q474 294 480 304 Q486 315 466 304 Z" fill="#f0f0e0" stroke="#d8d0c0" stroke-width="1.5" opacity="0.75"/>
+  <!-- scallion pieces -->
+  <path d="M352 296 L358 310" stroke="#3a8030" stroke-width="5" stroke-linecap="round"/>
+  <path d="M432 292 L428 306" stroke="#3a8030" stroke-width="5" stroke-linecap="round"/>
+  <!-- pepper slices  -->
+  <ellipse cx="368" cy="298" rx="6" ry="3.5" fill="#50b830" transform="rotate(-20 368 298)" opacity="0.85"/>
+  <ellipse cx="424" cy="294" rx="5.5" ry="3" fill="#50b830" transform="rotate(15 424 294)" opacity="0.8"/>
+  <!-- sesame -->
+  <circle cx="358" cy="322" r="3" fill="#e8c858" opacity="0.75"/>
+  <circle cx="446" cy="326" r="3" fill="#e8c858" opacity="0.7"/>
+  <circle cx="395" cy="330" r="2.5" fill="#e8c858" opacity="0.65"/>
+  <text x="64" y="108" font-size="38" font-weight="700" fill="#9a1808" font-family="sans-serif">오징어볶음</text>
+  <text x="64" y="156" font-size="21" fill="#7a3020" font-family="sans-serif">OJINGEO BOKKEUM</text>
+</svg>

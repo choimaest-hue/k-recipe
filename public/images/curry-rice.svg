@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-crr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffce0"/>
+      <stop offset="100%" stop-color="#fff0a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-crr)"/>
+  <!-- plate shadow -->
+  <ellipse cx="400" cy="385" rx="205" ry="50" fill="#906020" opacity="0.16"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="362" rx="200" ry="63" fill="#e8e4dc"/>
+  <ellipse cx="400" cy="338" rx="188" ry="50" fill="#f4f0e8"/>
+  <!-- white rice mound (right side) -->
+  <ellipse cx="462" cy="316" rx="88" ry="52" fill="#f8f8f0"/>
+  <!-- rice texture -->
+  <ellipse cx="462" cy="310" rx="78" ry="44" fill="#fffff8"/>
+  <!-- rice grain rows -->
+  <path d="M406 296 Q432 286 458 296 Q484 306 508 296" stroke="#e0ddd0" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M400 312 Q428 302 456 312 Q484 322 510 312" stroke="#e0ddd0" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+  <!-- yellow curry sauce (left side flowing) -->
+  <ellipse cx="330" cy="316" rx="100" ry="52" fill="#e09a00"/>
+  <ellipse cx="330" cy="308" rx="90" ry="44" fill="#f0a800"/>
+  <!-- curry spill onto rice -->
+  <path d="M396 300 Q386 308 382 320 Q378 332 388 338 Q400 344 410 338" fill="#e09a00" stroke="none"/>
+  <!-- potato chunks in curry -->
+  <ellipse cx="295" cy="302" rx="22" ry="14" fill="#e8d870" transform="rotate(-10 295 302)"/>
+  <ellipse cx="348" cy="308" rx="18" ry="12" fill="#f0e078" transform="rotate(12 348 308)"/>
+  <!-- carrot piece -->
+  <ellipse cx="318" cy="322" rx="14" ry="9" fill="#e86818" transform="rotate(-8 318 322)" opacity="0.9"/>
+  <!-- onion piece -->
+  <path d="M360 298 Q370 290 378 298 Q370 308 360 298 Z" fill="#f8f0e0" stroke="#d8d0c0" stroke-width="1.5" opacity="0.8"/>
+  <!-- meat piece -->
+  <ellipse cx="290" cy="320" rx="16" ry="9" fill="#c07848" transform="rotate(15 290 320)" opacity="0.8"/>
+  <!-- curry garnish - parsley -->
+  <ellipse cx="460" cy="290" rx="8" ry="6" fill="#50a040" opacity="0.7"/>
+  <!-- steam -->
+  <path d="M345 268 Q338 254 345 240 Q352 226 345 212" stroke="#f0b020" stroke-width="4" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <path d="M460 270 Q453 256 460 242 Q467 228 460 214" stroke="#f0f0a0" stroke-width="4" fill="none" opacity="0.3" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="40" font-weight="700" fill="#906008" font-family="sans-serif">카레라이스</text>
+  <text x="64" y="156" font-size="22" fill="#7a5010" font-family="sans-serif">CURRY RICE</text>
+</svg>

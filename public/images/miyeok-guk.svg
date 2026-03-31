@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg-myg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f8e8"/>
+      <stop offset="100%" stop-color="#b8e890"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="36" fill="url(#bg-myg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="380" rx="192" ry="50" fill="#206040" opacity="0.15"/>
+  <!-- bowl -->
+  <ellipse cx="400" cy="358" rx="188" ry="66" fill="#e8e8e0"/>
+  <ellipse cx="400" cy="328" rx="178" ry="44" fill="#f4f4ec"/>
+  <!-- light broth -->
+  <ellipse cx="400" cy="318" rx="165" ry="35" fill="#e8f4e0" opacity="0.85"/>
+  <!-- seaweed strands - dark green wavy -->
+  <path d="M280 310 Q295 295 310 310 Q325 325 340 310 Q355 295 370 308" stroke="#1e5e30" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M340 322 Q358 308 375 322 Q392 336 408 322 Q422 310 438 322" stroke="#256838" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M390 305 Q408 291 424 305 Q440 319 458 307 Q474 296 488 308" stroke="#1e5230" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M310 332 Q325 320 338 330 Q350 340 362 328" stroke="#2a6a3a" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M435 316 Q448 305 462 315 Q476 325 488 316" stroke="#226030" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <!-- beef pieces -->
+  <ellipse cx="370" cy="316" rx="16" ry="8" fill="#b87040" opacity="0.7" transform="rotate(-8 370 316)"/>
+  <ellipse cx="450" cy="320" rx="14" ry="7" fill="#c07848" opacity="0.65" transform="rotate(10 450 320)"/>
+  <!-- sesame seeds -->
+  <ellipse cx="395" cy="298" rx="4" ry="2.5" fill="#d0b060" transform="rotate(-20 395 298)" opacity="0.7"/>
+  <ellipse cx="420" cy="300" rx="3" ry="2" fill="#d0b060" transform="rotate(15 420 300)" opacity="0.65"/>
+  <ellipse cx="358" cy="302" rx="3.5" ry="2" fill="#d0b060" transform="rotate(-10 358 302)" opacity="0.65"/>
+  <!-- steam -->
+  <path d="M368 278 Q361 264 368 250 Q375 236 368 222" stroke="#80c060" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
+  <path d="M410 274 Q403 260 410 246 Q417 232 410 218" stroke="#80c060" stroke-width="4" fill="none" opacity="0.38" stroke-linecap="round"/>
+  <text x="64" y="108" font-size="44" font-weight="700" fill="#1e5828" font-family="sans-serif">미역국</text>
+  <text x="64" y="156" font-size="24" fill="#3a6840" font-family="sans-serif">MIYEOK GUK</text>
+</svg>

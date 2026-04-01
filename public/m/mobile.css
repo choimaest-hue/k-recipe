@@ -3,9 +3,7 @@ body {
 }
 
 .site-nav {
-  display: block;
-  position: sticky;
-  top: 0;
+  display: none;
 }
 
 .nav-inner {

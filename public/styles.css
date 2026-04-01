@@ -31,10 +31,6 @@ body {
   background: linear-gradient(180deg, #fff9f5 0%, #fffdfb 100%);
 }
 
-.subpage .site-nav {
-  display: none;
-}
-
 a {
   color: inherit;
 }

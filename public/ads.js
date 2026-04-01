@@ -25,14 +25,12 @@ function renderAdUnit(container) {
   }
 
   if (!isValidAdSlot(slot)) {
-    body.innerHTML = `
-      <div class="ad-slot-placeholder">
-        <strong>광고 영역 준비 완료</strong>
-        <p>AdSense 승인 후 <code>public/ads.js</code>의 <code>${slotKey}</code> 값에 광고 슬롯 ID를 넣으면 실제 광고가 표시됩니다.</p>
-      </div>
-    `;
+    body.innerHTML = "";
+    body.classList.add("ad-slot-empty");
     return;
   }
+
+  body.classList.remove("ad-slot-empty");
 
   const adElement = document.createElement("ins");
   adElement.className = "adsbygoogle";

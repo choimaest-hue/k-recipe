@@ -1,0 +1,124 @@
+body {
+  font-size: 15px;
+}
+
+.site-nav {
+  display: block;
+  position: sticky;
+  top: 0;
+}
+
+.nav-inner {
+  padding: 10px 0;
+}
+
+.nav-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+}
+
+.nav-links a {
+  text-align: center;
+  padding: 8px 6px;
+  font-size: 0.78rem;
+}
+
+.hero,
+.page-hero {
+  padding: 18px 0 10px;
+}
+
+.hero-grid,
+.page-hero-inner,
+.story-grid,
+.page-grid,
+.fridge-grid,
+.recipe-row,
+.grid-2,
+.details-grid,
+.info-strip-grid {
+  grid-template-columns: 1fr;
+}
+
+.container {
+  width: min(1120px, calc(100% - 18px));
+}
+
+.hero-card,
+.page-hero-card,
+.info-panel,
+.recipe-row,
+.preview-card {
+  padding: 12px;
+  border-radius: 14px;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 7.2vw, 1.9rem);
+}
+
+.recipe-thumb,
+.preview-thumb,
+.featured-image {
+  height: 168px;
+  border-radius: 10px;
+}
+
+.recipe-row {
+  gap: 10px;
+}
+
+.ad-slot {
+  min-height: 88px;
+  padding: 10px;
+}
+
+.mobile-dock {
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 14px 32px rgba(55, 22, 11, 0.14);
+}
+
+.mobile-dock a {
+  padding: 10px 6px;
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--brand-dark);
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.floating-contact-btn {
+  right: 10px;
+  bottom: 94px;
+  width: 54px;
+  height: 54px;
+  font-size: 0.78rem;
+}
+
+.view-switch {
+  right: 10px;
+  bottom: 154px;
+}
+
+.view-switch a {
+  width: 54px;
+}
+
+body {
+  padding-bottom: 74px;
+}

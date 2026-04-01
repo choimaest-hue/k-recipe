@@ -31,6 +31,10 @@ body {
   background: linear-gradient(180deg, #fff9f5 0%, #fffdfb 100%);
 }
 
+.subpage .site-nav {
+  display: none;
+}
+
 a {
   color: inherit;
 }
@@ -281,20 +285,16 @@ button.secondary,
 
 .ad-slot {
   display: grid;
-  gap: 12px;
+  gap: 8px;
   min-height: 120px;
-  padding: 18px;
-  border: 1px dashed #e5b9aa;
+  padding: 12px;
+  border: 1px solid var(--border);
   border-radius: 18px;
-  background: linear-gradient(180deg, #fffaf7 0%, #fff3ed 100%);
+  background: #fff;
 }
 
 .ad-slot-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
+  display: none;
 }
 
 .ad-badge {
@@ -318,6 +318,12 @@ button.secondary,
 .ad-slot-body {
   width: 100%;
   min-height: 90px;
+}
+
+.ad-slot-body.ad-slot-empty {
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  background: rgba(255, 247, 243, 0.45);
 }
 
 .ad-slot-placeholder {
@@ -1400,6 +1406,35 @@ body.modal-open {
   box-shadow: 0 18px 30px rgba(103, 28, 23, 0.35);
 }
 
+.view-switch {
+  position: fixed;
+  right: 16px;
+  bottom: 88px;
+  z-index: 79;
+  display: grid;
+  gap: 6px;
+}
+
+.view-switch a {
+  width: 62px;
+  height: 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid var(--border);
+  color: var(--brand-dark);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.view-switch a.is-active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
 @media (max-width: 640px) {
   .modal-grid {
     grid-template-columns: 1fr;
@@ -1412,5 +1447,14 @@ body.modal-open {
 
   .modal-title {
     font-size: 1.3rem;
+  }
+
+  .view-switch {
+    right: 12px;
+    bottom: 160px;
+  }
+
+  .view-switch a {
+    width: 56px;
   }
 }
